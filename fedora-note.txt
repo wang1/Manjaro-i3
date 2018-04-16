@@ -1,0 +1,21 @@
+1. 去掉英文输入，只留下一个中文输入，然后默认shift进行切换，初始状态置为英文；
+2. youdao辞典安装后不能用，还是dnf install stardict即可；词典下载http://download.huzheng.org/；安装：tar -xjvf a.tar.bz2 ； mv a /usr/share/stardict/dic
+3. dnf，vim都需要安装；
+4. dnf install chromium
+5. nodejs9安装
+   curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash - 
+   sudo dnf install nodejs
+6. wps缺少symbol以及仿宋等字体的解决：
+   下载相关字体；
+   copy到/usr/share/fonts目录中；
+   执行以下命令,生成字体的索引信息：
+	sudo mkfontscale
+	sudo mkfontdir
+   运行fc-cache命令更新字体缓存
+	sudo fc-cache
+7. 远程桌面工具Vinagre：
+   sudo dnf install vinagre
+8. Wireshark
+   sudo dnf install wireshark-qt
+   sudo usermod -a -G wireshark wang #将用户添加到wireshark组
+ 

@@ -1,0 +1,82 @@
+  安装node；
+  sudo npm i -g yarn;
+  yarn config set registry https://registry.npm.taobao.org --global
+  yarn global add @angular/cli
+  ng set --global packageManager=yarn
+  ng new covalentTest
+  cd covalentTest
+
+#install angular material module
+  yarn add @angular/material @angular/cdk
+  yarn add @angular/animations
+
+#build own material module file, import own needed modules
+  ng g m my-own-material --module=app --flat
+
+#copy following content into my-own-material.module.ts file
+  import { NgModule } from '@angular/core';
+  import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+  @NgModule({
+    imports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule],
+    exports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule],
+  })
+  export class MyOwnMaterialModule { }
+
+#then import this module file in app.module.ts file
+
+#Including a theme is required to apply all of the core and theme styles to your application.
+To get started with a prebuilt theme, include one of Angular Material's prebuilt themes globally in your application. If you're using the Angular CLI, you can add this to your styles.css:
+  @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+------------------------------------------------------------------------
+
+#install covalent core module
+  yarn add @covalent/core 
+
+#build own covalent module file
+  ng g m my-own-covalent
+
+#copy the following into my-own-covalent.module.ts file
+  import { NgModule } from '@angular/core';
+  import { CovalentLayoutModule } from '@covalent/core/layout';
+  import { CovalentStepsModule  } from '@covalent/core/steps';
+
+  @NgModule({
+    imports: [ CovalentLayoutModule, CovalentStepsModule ],
+    exports: [ CovalentLayoutModule, CovalentStepsModule ],
+  })
+  export class MyOwnCovalentModule { }
+
+#then import this file into app.module, like this:
+  import { BrowserModule } from '@angular/platform-browser';
+  import { NgModule } from '@angular/core';
+
+
+  import { AppComponent } from './app.component';
+  import { MyOwnMaterialModule } from './my-own-material/my-own-material.module';
+  import { MyOwnCovalentModule } from './my-own-covalent/my-own-covalent.module';
+
+  @NgModule({
+    declarations: [
+      AppComponent
+    ],
+    imports: [
+      BrowserModule, MyOwnMaterialModule, MyOwnCovalentModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
+
+#now, it's ok copy the following into app.component.html file for testing basic material component
+  <div class="button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button routerLink=".">Link</a>
+  </div>
+
+#then, copy the following into app.component.html file for testing covalent component
