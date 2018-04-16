@@ -34,7 +34,8 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 保存成功后，在终端输入fcitx启动服务。
 
-我只使用了拼音，已经设置fcitx自动运行，且使用morc_menu的fcitx config设置了shift切换和<>翻页、模糊音等。
+以上是否需要这么复杂还可考虑？
+我使用了google，默认的拼音难用，但似乎google不能配置，已经设置fcitx自动运行，且使用morc_menu的fcitx config设置了shift切换和<>翻页、模糊音等。
 
 =======================
 
