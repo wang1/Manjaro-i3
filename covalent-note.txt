@@ -28,9 +28,14 @@
 #Including a theme is required to apply all of the core and theme styles to your application.
 To get started with a prebuilt theme, include one of Angular Material's prebuilt themes globally in your application. If you're using the Angular CLI, you can add this to your styles.css:
   @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+  
+  #If you want to use the mat-icon component with the official Material Design Icons, load the icon font in your index.html.
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 ------------------------------------------------------------------------
 
-#now, it's ok copy the following into app.component.html file for testing basic material component
+#now, it's ok. Copy the following content into app.component.html file for testing  material/covalent component
   <div class="button-row">
     <button mat-raised-button>Basic</button>
     <button mat-raised-button color="primary">Primary</button>
@@ -40,4 +45,3 @@ To get started with a prebuilt theme, include one of Angular Material's prebuilt
     <a mat-raised-button routerLink=".">Link</a>
   </div>
 
-#then, copy the following into app.component.html file for testing covalent component
