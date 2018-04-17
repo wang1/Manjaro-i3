@@ -13,16 +13,30 @@
   ng g m my-own-material --module=app --flat
 
 #copy following content into my-own-material.module.ts file
-  import { NgModule } from '@angular/core';
-  import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  import { CovalentLayoutModule } from '@covalent/core/layout';
+import { CovalentLayoutModule } from '@covalent/core';
+import { MatButtonModule, MatIconModule, MatCardModule, MatDividerModule } from '@angular/material';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-  @NgModule({
-    imports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule, CovalentLayoutModule],
-    exports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule, CovalentLayoutModule],
-  })
-  export class MyOwnMaterialModule { }
+@NgModule({
+  imports: [
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    CovalentLayoutModule
+  ],
+  exports: [
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatDividerModule,
+    CovalentLayoutModule
+  ]
+})
+export class MyOwnMaterialModule { }
 
 
 #Including a theme is required to apply all of the core and theme styles to your application.
@@ -36,12 +50,23 @@ To get started with a prebuilt theme, include one of Angular Material's prebuilt
 ------------------------------------------------------------------------
 
 #now, it's ok. Copy the following content into app.component.html file for testing  material/covalent component
-  <div class="button-row">
-    <button mat-raised-button>Basic</button>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
-    <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button routerLink=".">Link</a>
-  </div>
-
+  
+<td-layout>
+  <td-layout-nav>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <mat-icon>flag</mat-icon>
+      <span class="cursor-pointer">Covalent Material Test</span>
+    </div>
+    <td-layout-card-over cardWidth="75">
+      <mat-card-title>Tour Of Heroes</mat-card-title>
+      <mat-card-subtitle>为英雄们找一个家</mat-card-subtitle>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+          <br>
+        <button mat-raised-button color="primary">
+          <mat-icon>home</mat-icon> Home
+        </button>
+      </mat-card-content>
+    </td-layout-card-over>
+  </td-layout-nav>
+</td-layout>
