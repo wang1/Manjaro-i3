@@ -1,8 +1,8 @@
-  安装node；
+  sudo pacman -S nodejs；
   sudo npm i -g yarn;
-  yarn config set registry https://registry.npm.taobao.org --global
-  yarn global add @angular/cli
-  ng set --global packageManager=yarn
+ sudo  yarn config set registry https://registry.npm.taobao.org --global
+  sudo yarn global add @angular/cli
+  sudo ng set --global packageManager=yarn
   ng new covalentTest
   cd covalentTest
 
@@ -24,7 +24,6 @@
   })
   export class MyOwnMaterialModule { }
 
-#then import this module file in app.module.ts file
 
 #Including a theme is required to apply all of the core and theme styles to your application.
 To get started with a prebuilt theme, include one of Angular Material's prebuilt themes globally in your application. If you're using the Angular CLI, you can add this to your styles.css:
