@@ -6,9 +6,8 @@
   ng new covalentTest
   cd covalentTest
 
-#install angular material module
-  yarn add @angular/material @angular/cdk
-  yarn add @angular/animations
+#install angular material and covalent module
+  yarn add @angular/material @angular/cdk @angular/animations @covalent/core
 
 #build own material module file, import own needed modules
   ng g m my-own-material --module=app --flat
@@ -17,10 +16,11 @@
   import { NgModule } from '@angular/core';
   import { MatButtonModule, MatCheckboxModule } from '@angular/material';
   import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  import { CovalentLayoutModule } from '@covalent/core/layout';
 
   @NgModule({
-    imports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule],
-    exports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule],
+    imports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule, CovalentLayoutModule],
+    exports: [MatButtonModule, MatCheckboxModule, BrowserAnimationsModule, CovalentLayoutModule],
   })
   export class MyOwnMaterialModule { }
 
@@ -29,44 +29,6 @@
 To get started with a prebuilt theme, include one of Angular Material's prebuilt themes globally in your application. If you're using the Angular CLI, you can add this to your styles.css:
   @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 ------------------------------------------------------------------------
-
-#install covalent core module
-  yarn add @covalent/core 
-
-#build own covalent module file
-  ng g m my-own-covalent
-
-#copy the following into my-own-covalent.module.ts file
-  import { NgModule } from '@angular/core';
-  import { CovalentLayoutModule } from '@covalent/core/layout';
-  import { CovalentStepsModule  } from '@covalent/core/steps';
-
-  @NgModule({
-    imports: [ CovalentLayoutModule, CovalentStepsModule ],
-    exports: [ CovalentLayoutModule, CovalentStepsModule ],
-  })
-  export class MyOwnCovalentModule { }
-
-#then import this file into app.module, like this:
-  import { BrowserModule } from '@angular/platform-browser';
-  import { NgModule } from '@angular/core';
-
-
-  import { AppComponent } from './app.component';
-  import { MyOwnMaterialModule } from './my-own-material/my-own-material.module';
-  import { MyOwnCovalentModule } from './my-own-covalent/my-own-covalent.module';
-
-  @NgModule({
-    declarations: [
-      AppComponent
-    ],
-    imports: [
-      BrowserModule, MyOwnMaterialModule, MyOwnCovalentModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-  })
-  export class AppModule { }
 
 #now, it's ok copy the following into app.component.html file for testing basic material component
   <div class="button-row">
