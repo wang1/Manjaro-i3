@@ -1,0 +1,134 @@
+------------
+node
+-----------------
+下载安装即可，重复安装即可更新，node -v
+---------------------
+yarn
+-------------------------
+npm install -g yarn 	安装yarn，重新安装即可更新（注意使用管理员权限）,yarn -v
+yarn config get registry
+# -> https://registry.yarnpkg.com  	当前使用的是yarnkg
+yarn config set registry 'https://registry.npm.taobao.org' --global 	配置为淘宝源，以后涉及npm的都使用yarn进行了
+
+---------------------------------------------------
+npm	Yarn
+npm install	yarn install
+(N/A)	yarn install --flat
+(N/A)	yarn install --har
+(N/A)	yarn install --no-lockfile
+(N/A)	yarn install --pure-lockfile
+npm install [package]	(N/A)
+npm install --save [package]	yarn add [package]
+npm install --save-dev [package]	yarn add [package] [--dev/-D]
+(N/A)	yarn add [package] [--peer/-P]
+npm install --save-optional [package]	yarn add [package] [--optional/-O]
+npm install --save-exact [package]	yarn add [package] [--exact/-E]
+(N/A)	yarn add [package] [--tilde/-T]
+npm install --global [package]	yarn global add [package]
+npm rebuild	yarn install --force
+npm uninstall [package]	(N/A)
+npm uninstall --save [package]	yarn remove [package]
+npm uninstall --save-dev [package]	yarn remove [package]
+npm uninstall --save-optional [package]	yarn remove [package]
+npm cache clean	yarn cache clean
+rm -rf node_modules && npm install	yarn upgrade
+---------------------------------------------------
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+npm不用了！！！！！
+首先用cnpm试试
+---------------------
+翻墙安装(如果node-sass安装失败则翻墙，WTF GFW!）
+---------------------
+npm config set proxy=http://127.0.0.1:8087
+npm config set registry=http://registry.npmjs.org 
+设置回来
+npm config delete proxy
+npm config set registry https://registry.npm.taobao.org 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+---------------------
+angular/cli
+---------------------
+yarn global add @angular/cli	angular/cli安装，也可更新，ng -v
+ng set packageManager=yarn --global	angular/cli中使用yarn作为包管理器，随时可转换回npm或者cnpm
+
+---------------------
+angular/cli使用
+---------------------
+ng new PROJECT_NAME
+cd PROJECT_NAME
+ng serve -o	启动开发服务器，监听文件变化，并在修改这些文件时重新构建此应用，自动打开浏览器并访问http://localhost:4200/
+ng build --prod --base-href="myURL"
+
+Scaffold	Usage
+Component	ng g component my-new
+Directive	ng g directive my-new
+Pipe		ng g pipe my-new
+Service		ng g service my-new
+Class		ng g class my-new
+Guard		ng g guard my-new
+Interface	ng g interface my-new
+Enum		ng g enum my-new
+Module		ng g module my-new
+---------------------
+git使用
+---------------------
+在code中打开文件夹，如果没有初始化则会有初始化的按钮，点击进行初始化（表明现在项目由github进行版本控制，angular/cli生成的项目已经初始化了），否则先本地暂存和提交（commit）；
+登录github，新建名为xxx项目仓库
+然后在项目文件夹下使用如下命令进行关联，origin表明是项目的起始
+git remote add origin https://github.com/wang1/xxx
+然后可以使用push/pull/sync等命令，在vscode左下角有图标可用
+git config --global credential.helper wincred命令可以缓存github账户和密码
+---------------------
+angular material使用
+---------------------
+npm i --save @angular/material(yarn add @angular/material @angular/cdk @angular/animations，动画模块可选)
+app.module.ts中import数组中添加需要的模块如MatButtonModule、MatCheckBoxModule等，或者自己生成一个模块包含material的模块，然后导入AppModule，但要注意一定在BrowserModule后
+style.css中导入主题@import '~@angular/material/prebuilt-themes/deeppurple-amber.css（或indigo-pink.css等）';
+index.html中导入图标<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+(<link href="//fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">使用了中科大的google font镜像，或下载到本地)
+---------------------
+MDBootstrap使用
+---------------------
+npm i --save mdbootstrap
+style.css中导入
+	@import "../node_modules/mdbootstrap/css/bootstrap.min.css";
+	@import "../node_modules/mdbootstrap/css/mdb.min.css";
+index.html中导入字体<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+如果需要使用js，则在index.html中导入
+	<!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/jquery-2.2.3.min.js"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
+---------------------
+默认情况下,启动的是开发模式。
+---------------------
+生成生产环境代码:ng build --prod --env=prod
+执行后，会在项目根目录下生成dist目录，所有优化后的代码
+以生产模式启动服务器:ng serve --prod
+---------------------
+Deployd
+---------------------
+yarn global add deployd-cli 安装
+mongodb单独安装，并set path=%path%;"C:\Program Files\MongoDB\Server\3.4\bin"
+fedora下如此安装即可：
+sudo dnf install mongodb mongodb-server
+但请注意：以下命令不能使用，貌似deployd将会自己启动mongodb，否则报错！
+sudo service mongod start/stop/restart
+sudo systemctl enable mongod.service
+
+dpd create newProject
+cd newProject
+dpd -d启动，打开localhost:2403/dashboard即可
+查询格式：this.http.get(`http://localhost:2403/heroes?{"name":{"$regex":"${term}","$options":"i"}}`)
+------------------------

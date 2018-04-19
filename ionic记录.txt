@@ -1,0 +1,12 @@
+0. node安装
+1. npm config set registry https://registry.npm.taobao.org
+2. npm install -g yarn
+3. yarn global add cordova ionic
+4. JDK安装并设置JAVA_HOME以及bin路径
+5. Android SDK安装（https://developer.android.com/studio/index.html，无需studio，直接下载SDK Tools，解压后运行android即可打开SDK Manager，install platform tools
+and other required libraries）
+5.1. 因为没用studio，运行模拟器时可能缺失某些依赖，如报告缺少gradle，查看https://gradle.org/install，下载并设置路径
+6. 配置SDK Tools的路径何platform tools的路径（需要重启），命令行能运行adb即可
+7. 可选。使用第三方的模拟器（https://www.genymotion.com/）
+8. ionic start myApp blank/tabs/sidemenu/tutorial生成app框架，进入myApp目录，ionic serve开始运行在8100，以Chrome进行测试
+9. ionic cordova platform add android, ionic cordova build/emulate/run android
