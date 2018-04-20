@@ -1,6 +1,6 @@
   sudo pacman -S nodejs；
   sudo npm i -g yarn;
- sudo  yarn config set registry https://registry.npm.taobao.org --global
+  sudo  yarn config set registry https://registry.npm.taobao.org --global
   sudo yarn global add @angular/cli
   sudo ng set --global packageManager=yarn
   ng new covalentTest
@@ -19,6 +19,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
+#NOTE：如果该模块中不使用各模块的话，imports数组可以不要，只export即可
   imports: [
     BrowserAnimationsModule,
     MatButtonModule,
