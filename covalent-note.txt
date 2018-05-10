@@ -1,8 +1,9 @@
+  
   sudo pacman -S nodejs；
   sudo npm i -g yarn;
-  sudo  yarn config set registry https://registry.npm.taobao.org --global
+  sudo  yarn config set registry https://registry.npm.taobao.org --global(注意：去掉sudo以当前用户身份再执行一次，似乎才能真正全局配置好，不知原因，否则，用get查看registry发现还是没变，但sudo查看则改变了)
   sudo yarn global add @angular/cli
-  sudo ng set --global packageManager=yarn
+  sudo ng set --global packageManager=yarn(注意：去掉sudo以当前用户身份再执行一次，似乎才能真正全局配置好，不知原因，否则，用get查看registry发现还是没变，但sudo查看则改变了)
   ng new covalentTest
   cd covalentTest
 
