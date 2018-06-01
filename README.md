@@ -1,9 +1,8 @@
-# Manjaro-i3
-##这是一个Manjaro -i3的配置记录和相关文件
-三个配置文件
-i3's configure file--> ~/.i3/config, 
-i3status's configure file --> /etc/i3status.conf,
-URxvt‘s configure file --> ~/.Xresources
+# Manjaro -i3的配置记录和相关文件
+### 三个配置文件及其位置
+1. i3's configure file--> ~/.i3/config, 
+2. i3status's configure file --> /etc/i3status.conf,
+3. URxvt‘s configure file --> ~/.Xresources
 
 桌面组件conky，默认是i3配置文件中启动/usr/bin/start_conky_maia脚本，该脚本加载了/usr/share/conky目录下的两个配置文件，分别是右上角的conky_maia和conky1.10_shrotcuts_maia
 
