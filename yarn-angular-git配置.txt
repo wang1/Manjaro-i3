@@ -1,14 +1,14 @@
 ------------
 node
 -----------------
-ÏÂÔØ°²×°¼´¿É£¬ÖØ¸´°²×°¼´¿É¸üĞÂ£¬node -v
+ä¸‹è½½å®‰è£…å³å¯ï¼Œé‡å¤å®‰è£…å³å¯æ›´æ–°ï¼Œnode -v
 ---------------------
 yarn
 -------------------------
-npm install -g yarn 	°²×°yarn£¬ÖØĞÂ°²×°¼´¿É¸üĞÂ£¨×¢ÒâÊ¹ÓÃ¹ÜÀíÔ±È¨ÏŞ£©,yarn -v
+npm install -g yarn 	å®‰è£…yarnï¼Œé‡æ–°å®‰è£…å³å¯æ›´æ–°ï¼ˆæ³¨æ„ä½¿ç”¨ç®¡ç†å‘˜æƒé™ï¼‰,yarn -v
 yarn config get registry
-# -> https://registry.yarnpkg.com  	µ±Ç°Ê¹ÓÃµÄÊÇyarnkg
-yarn config set registry 'https://registry.npm.taobao.org' --global 	ÅäÖÃÎªÌÔ±¦Ô´£¬ÒÔºóÉæ¼°npmµÄ¶¼Ê¹ÓÃyarn½øĞĞÁË
+# -> https://registry.yarnpkg.com  	å½“å‰ä½¿ç”¨çš„æ˜¯yarnkg
+yarn config set registry 'https://registry.npm.taobao.org' --global 	é…ç½®ä¸ºæ·˜å®æºï¼Œä»¥åæ¶‰åŠnpmçš„éƒ½ä½¿ç”¨yarnè¿›è¡Œäº†
 
 ---------------------------------------------------
 npm	Yarn
@@ -36,29 +36,30 @@ rm -rf node_modules && npm install	yarn upgrade
 
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-npm²»ÓÃÁË£¡£¡£¡£¡£¡
-Ê×ÏÈÓÃcnpmÊÔÊÔ
+npmä¸ç”¨äº†ï¼ï¼ï¼ï¼ï¼
+é¦–å…ˆç”¨cnpmè¯•è¯•
 ---------------------
-·­Ç½°²×°(Èç¹ûnode-sass°²×°Ê§°ÜÔò·­Ç½£¬WTF GFW!£©
+ç¿»å¢™å®‰è£…(å¦‚æœnode-sasså®‰è£…å¤±è´¥åˆ™ç¿»å¢™ï¼ŒWTF GFW!ï¼‰
 ---------------------
 npm config set proxy=http://127.0.0.1:8087
 npm config set registry=http://registry.npmjs.org 
-ÉèÖÃ»ØÀ´
+è®¾ç½®å›æ¥
 npm config delete proxy
 npm config set registry https://registry.npm.taobao.org 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ---------------------
 angular/cli
 ---------------------
-yarn global add @angular/cli	angular/cli°²×°£¬Ò²¿É¸üĞÂ£¬ng -v
-ng set packageManager=yarn --global	angular/cliÖĞÊ¹ÓÃyarn×÷Îª°ü¹ÜÀíÆ÷£¬ËæÊ±¿É×ª»»»Ønpm»òÕßcnpm
+yarn global add @angular/cli	angular/cliå®‰è£…ï¼Œä¹Ÿå¯æ›´æ–°ï¼Œng -v
+ng config -g cli.packageManager yarn	
+#ng set packageManager=yarn --global	angular/cliä¸­ä½¿ç”¨yarnä½œä¸ºåŒ…ç®¡ç†å™¨ï¼Œéšæ—¶å¯è½¬æ¢å›npmæˆ–è€…cnpm
 
 ---------------------
-angular/cliÊ¹ÓÃ
+angular/cliä½¿ç”¨
 ---------------------
 ng new PROJECT_NAME
 cd PROJECT_NAME
-ng serve -o	Æô¶¯¿ª·¢·şÎñÆ÷£¬¼àÌıÎÄ¼ş±ä»¯£¬²¢ÔÚĞŞ¸ÄÕâĞ©ÎÄ¼şÊ±ÖØĞÂ¹¹½¨´ËÓ¦ÓÃ£¬×Ô¶¯´ò¿ªä¯ÀÀÆ÷²¢·ÃÎÊhttp://localhost:4200/
+ng serve -o	å¯åŠ¨å¼€å‘æœåŠ¡å™¨ï¼Œç›‘å¬æ–‡ä»¶å˜åŒ–ï¼Œå¹¶åœ¨ä¿®æ”¹è¿™äº›æ–‡ä»¶æ—¶é‡æ–°æ„å»ºæ­¤åº”ç”¨ï¼Œè‡ªåŠ¨æ‰“å¼€æµè§ˆå™¨å¹¶è®¿é—®http://localhost:4200/
 ng build --prod --base-href="myURL"
 
 Scaffold	Usage
@@ -72,31 +73,31 @@ Interface	ng g interface my-new
 Enum		ng g enum my-new
 Module		ng g module my-new
 ---------------------
-gitÊ¹ÓÃ
+gitä½¿ç”¨
 ---------------------
-ÔÚcodeÖĞ´ò¿ªÎÄ¼ş¼Ğ£¬Èç¹ûÃ»ÓĞ³õÊ¼»¯Ôò»áÓĞ³õÊ¼»¯µÄ°´Å¥£¬µã»÷½øĞĞ³õÊ¼»¯£¨±íÃ÷ÏÖÔÚÏîÄ¿ÓÉgithub½øĞĞ°æ±¾¿ØÖÆ£¬angular/cliÉú³ÉµÄÏîÄ¿ÒÑ¾­³õÊ¼»¯ÁË£©£¬·ñÔòÏÈ±¾µØÔİ´æºÍÌá½»£¨commit£©£»
-µÇÂ¼github£¬ĞÂ½¨ÃûÎªxxxÏîÄ¿²Ö¿â
-È»ºóÔÚÏîÄ¿ÎÄ¼ş¼ĞÏÂÊ¹ÓÃÈçÏÂÃüÁî½øĞĞ¹ØÁª£¬origin±íÃ÷ÊÇÏîÄ¿µÄÆğÊ¼
+åœ¨codeä¸­æ‰“å¼€æ–‡ä»¶å¤¹ï¼Œå¦‚æœæ²¡æœ‰åˆå§‹åŒ–åˆ™ä¼šæœ‰åˆå§‹åŒ–çš„æŒ‰é’®ï¼Œç‚¹å‡»è¿›è¡Œåˆå§‹åŒ–ï¼ˆè¡¨æ˜ç°åœ¨é¡¹ç›®ç”±githubè¿›è¡Œç‰ˆæœ¬æ§åˆ¶ï¼Œangular/cliç”Ÿæˆçš„é¡¹ç›®å·²ç»åˆå§‹åŒ–äº†ï¼‰ï¼Œå¦åˆ™å…ˆæœ¬åœ°æš‚å­˜å’Œæäº¤ï¼ˆcommitï¼‰ï¼›
+ç™»å½•githubï¼Œæ–°å»ºåä¸ºxxxé¡¹ç›®ä»“åº“
+ç„¶ååœ¨é¡¹ç›®æ–‡ä»¶å¤¹ä¸‹ä½¿ç”¨å¦‚ä¸‹å‘½ä»¤è¿›è¡Œå…³è”ï¼Œoriginè¡¨æ˜æ˜¯é¡¹ç›®çš„èµ·å§‹
 git remote add origin https://github.com/wang1/xxx
-È»ºó¿ÉÒÔÊ¹ÓÃpush/pull/syncµÈÃüÁî£¬ÔÚvscode×óÏÂ½ÇÓĞÍ¼±ê¿ÉÓÃ
-git config --global credential.helper wincredÃüÁî¿ÉÒÔ»º´ægithubÕË»§ºÍÃÜÂë
+ç„¶åå¯ä»¥ä½¿ç”¨push/pull/syncç­‰å‘½ä»¤ï¼Œåœ¨vscodeå·¦ä¸‹è§’æœ‰å›¾æ ‡å¯ç”¨
+git config --global credential.helper wincredå‘½ä»¤å¯ä»¥ç¼“å­˜githubè´¦æˆ·å’Œå¯†ç 
 ---------------------
-angular materialÊ¹ÓÃ
+angular materialä½¿ç”¨
 ---------------------
-npm i --save @angular/material(yarn add @angular/material @angular/cdk @angular/animations£¬¶¯»­Ä£¿é¿ÉÑ¡)
-app.module.tsÖĞimportÊı×éÖĞÌí¼ÓĞèÒªµÄÄ£¿éÈçMatButtonModule¡¢MatCheckBoxModuleµÈ£¬»òÕß×Ô¼ºÉú³ÉÒ»¸öÄ£¿é°üº¬materialµÄÄ£¿é£¬È»ºóµ¼ÈëAppModule£¬µ«Òª×¢ÒâÒ»¶¨ÔÚBrowserModuleºó
-style.cssÖĞµ¼ÈëÖ÷Ìâ@import '~@angular/material/prebuilt-themes/deeppurple-amber.css£¨»òindigo-pink.cssµÈ£©';
-index.htmlÖĞµ¼ÈëÍ¼±ê<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-(<link href="//fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">Ê¹ÓÃÁËÖĞ¿Æ´óµÄgoogle font¾µÏñ£¬»òÏÂÔØµ½±¾µØ)
+npm i --save @angular/material(yarn add @angular/material @angular/cdk @angular/animationsï¼ŒåŠ¨ç”»æ¨¡å—å¯é€‰)
+app.module.tsä¸­importæ•°ç»„ä¸­æ·»åŠ éœ€è¦çš„æ¨¡å—å¦‚MatButtonModuleã€MatCheckBoxModuleç­‰ï¼Œæˆ–è€…è‡ªå·±ç”Ÿæˆä¸€ä¸ªæ¨¡å—åŒ…å«materialçš„æ¨¡å—ï¼Œç„¶åå¯¼å…¥AppModuleï¼Œä½†è¦æ³¨æ„ä¸€å®šåœ¨BrowserModuleå
+style.cssä¸­å¯¼å…¥ä¸»é¢˜@import '~@angular/material/prebuilt-themes/deeppurple-amber.cssï¼ˆæˆ–indigo-pink.cssç­‰ï¼‰';
+index.htmlä¸­å¯¼å…¥å›¾æ ‡<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+(<link href="//fonts.lug.ustc.edu.cn/icon?family=Material+Icons" rel="stylesheet">ä½¿ç”¨äº†ä¸­ç§‘å¤§çš„google fonté•œåƒï¼Œæˆ–ä¸‹è½½åˆ°æœ¬åœ°)
 ---------------------
-MDBootstrapÊ¹ÓÃ
+MDBootstrapä½¿ç”¨
 ---------------------
 npm i --save mdbootstrap
-style.cssÖĞµ¼Èë
+style.cssä¸­å¯¼å…¥
 	@import "../node_modules/mdbootstrap/css/bootstrap.min.css";
 	@import "../node_modules/mdbootstrap/css/mdb.min.css";
-index.htmlÖĞµ¼Èë×ÖÌå<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-Èç¹ûĞèÒªÊ¹ÓÃjs£¬ÔòÔÚindex.htmlÖĞµ¼Èë
+index.htmlä¸­å¯¼å…¥å­—ä½“<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+å¦‚æœéœ€è¦ä½¿ç”¨jsï¼Œåˆ™åœ¨index.htmlä¸­å¯¼å…¥
 	<!-- SCRIPTS -->
 
     <!-- JQuery -->
@@ -111,24 +112,24 @@ index.htmlÖĞµ¼Èë×ÖÌå<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="../node_modules/mdbootstrap/js/mdb.min.js"></script>
 ---------------------
-Ä¬ÈÏÇé¿öÏÂ,Æô¶¯µÄÊÇ¿ª·¢Ä£Ê½¡£
+é»˜è®¤æƒ…å†µä¸‹,å¯åŠ¨çš„æ˜¯å¼€å‘æ¨¡å¼ã€‚
 ---------------------
-Éú³ÉÉú²ú»·¾³´úÂë:ng build --prod --env=prod
-Ö´ĞĞºó£¬»áÔÚÏîÄ¿¸ùÄ¿Â¼ÏÂÉú³ÉdistÄ¿Â¼£¬ËùÓĞÓÅ»¯ºóµÄ´úÂë
-ÒÔÉú²úÄ£Ê½Æô¶¯·şÎñÆ÷:ng serve --prod
+ç”Ÿæˆç”Ÿäº§ç¯å¢ƒä»£ç :ng build --prod --env=prod
+æ‰§è¡Œåï¼Œä¼šåœ¨é¡¹ç›®æ ¹ç›®å½•ä¸‹ç”Ÿæˆdistç›®å½•ï¼Œæ‰€æœ‰ä¼˜åŒ–åçš„ä»£ç 
+ä»¥ç”Ÿäº§æ¨¡å¼å¯åŠ¨æœåŠ¡å™¨:ng serve --prod
 ---------------------
 Deployd
 ---------------------
-yarn global add deployd-cli °²×°
-mongodbµ¥¶À°²×°£¬²¢set path=%path%;"C:\Program Files\MongoDB\Server\3.4\bin"
-fedoraÏÂÈç´Ë°²×°¼´¿É£º
+yarn global add deployd-cli å®‰è£…
+mongodbå•ç‹¬å®‰è£…ï¼Œå¹¶set path=%path%;"C:\Program Files\MongoDB\Server\3.4\bin"
+fedoraä¸‹å¦‚æ­¤å®‰è£…å³å¯ï¼š
 sudo dnf install mongodb mongodb-server
-µ«Çë×¢Òâ£ºÒÔÏÂÃüÁî²»ÄÜÊ¹ÓÃ£¬Ã²ËÆdeployd½«»á×Ô¼ºÆô¶¯mongodb£¬·ñÔò±¨´í£¡
+ä½†è¯·æ³¨æ„ï¼šä»¥ä¸‹å‘½ä»¤ä¸èƒ½ä½¿ç”¨ï¼Œè²Œä¼¼deploydå°†ä¼šè‡ªå·±å¯åŠ¨mongodbï¼Œå¦åˆ™æŠ¥é”™ï¼
 sudo service mongod start/stop/restart
 sudo systemctl enable mongod.service
 
 dpd create newProject
 cd newProject
-dpd -dÆô¶¯£¬´ò¿ªlocalhost:2403/dashboard¼´¿É
-²éÑ¯¸ñÊ½£ºthis.http.get(`http://localhost:2403/heroes?{"name":{"$regex":"${term}","$options":"i"}}`)
+dpd -då¯åŠ¨ï¼Œæ‰“å¼€localhost:2403/dashboardå³å¯
+æŸ¥è¯¢æ ¼å¼ï¼šthis.http.get(`http://localhost:2403/heroes?{"name":{"$regex":"${term}","$options":"i"}}`)
 ------------------------
