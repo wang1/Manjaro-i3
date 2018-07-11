@@ -1,0 +1,278 @@
+------------
+nginx forbiden
+------------
+centos中，拷贝course文件夹后访问出现forbiden，可能是SELinux限制，执行
+chcon -Rt httpd_sys_content_t /path/to/www后，systemctl restart nginx试试
+
+------------
+U盘制作
+------------
+使用rufus进行fedora安装盘制作,完成后请删除U盘根目录下的EFI文件夹，否则有启动问题
+
+------------
+安装过程注意
+------------
+将语言支持请选择英文和中文环境，默认英文；新建的用户勾选添加到管理组；
+
+-----------
+network配置
+-----------
+vim /etc/sysconfig/network-scripts/ifcfg-enpXXX，注意ONBOOT需设置为yes
+sudo service network restart
+
+--------------------------------------
+参考：http://gaunthan.leanote.com/post/%E5%AE%89%E8%A3%85%E5%AE%8C-Fedora-25-%E5%90%8E%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%E6%83%85
+
+配置软件源
+--------------------------------------
+
+不用多说，安装完系统后的第一件事情一般都是更新系统。配置优质的软件源不仅能及时获得上游更新，还能拥有各种各样的软件支持。
+
+作为天朝子民，访问外网速度过慢。因此在开始安装工作前，配置国内源几乎是首选的行动。其实，除了配置国内源（诸如 FZUG源，阿里源，搜狐源，网易源等），还有一点比较重要的配置往往被我们忽略——启用 RPM Fusion源。
+
+启用 RPM Fusion
+
+运行下列命令以启用 RPM Fusion 源：
+
+# RPM Fusion Free 源
+sudo dnf install http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-26.noarch.rpm -y
+# RPM Fusion Nonfree 源
+sudo dnf install http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-26.noarch.rpm -y
+启用后我们就可以直接安装 flash 等软件。
+
+启用 FZUG 源
+
+FZUG 源是由 Fedora 中文社区(FZUG) 维护的，有大量面向国内用户的常用软件，如网易云音乐，有道词典，chromium 浏览器等。这里向 FZUG 点个赞！
+
+启用 FZUG 源的方式也很简单，运行下面这条命令即可：
+
+sudo dnf config-manager --add-repo=http://repo.fdzh.org/FZUG/FZUG.repo
+FDZH 提供了一个软件包列表页面，可以使用浏览器进行查看。也可以运行下面这条命令检索软件包列表：
+
+dnf list --disablerepo=* --enablerepo=fzug-free --enablerepo=fzug-nonfree | grep -i fzug
+在安装 FZUG 提供的 netease-cloud-music 时，我遇到了依赖包缺失的问题。如果你也遇到了，那你可能还没有启用 RPM Fusion 源。
+
+启用阿里源
+
+相比于网易源和搜狐源，个人偏向于使用阿里源。启用的方式于上述的是一样的，只是链接需要更改：
+
+sudo dnf config-manager --add-repo=http://mirrors.aliyun.com/repo/fedora.repo
+更新缓存
+
+对源进行的修改后，还需要进行更新。上面的操作都仅是添加了源，还没有进行缓存的更新。为了使用新的源提供的软件，需要运行下面这条指令：
+
+sudo dnf makecache
+
+
+
+
+------------------------------------
+add wang into sudoers files
+------------------------------------
+su root, change to root
+visudo, edit sudoer's config file. Insert a line "wang	ALL=(ALL)	ALL" after root line, save and exit.
+su wang, back to wang
+
+------------------------------
+中文输入法
+------------------------------
+安装centos时选择了中文和英文两种语言，所以输入法直接在系统设置菜单选用中文输入即可。使用shift进行切换。
+
+-----------------
+7Zip，支持格式更多
+-----------------
+sudo dnf install p7zip p7zip-plugins
+
+使用 “a” 选项就可以创建一个归档文件，它可以创建 7z、XZ、GZIP、TAR、 ZIP 和 BZIP2 这几种格式的文件。如果指定的归档文件已经存在的话，它会把文件“附加”到存在的归档中，而不是覆盖原有归档文件。
+
+7z a <archive-filename> <list-of-files> 
+使用 “e” 选项可以抽取一个归档文件，抽取出的文件会放在当前目录。抽取支持的格式比创建时支持的格式要多的多，包括 7z、XZ、GZIP、TAR、ZIP、BZIP2、LZMA2、CAB、ARJ、CPIO、RPM、ISO 和 DEB 这些格式。
+
+7z e <archive-filename>
+
+7z l  <archive-filename>	查看压缩文件
+
+------------------------------------
+vscode install
+------------------------------------
+RHEL, Fedora and CentOS based distributions
+
+We currently ship the stable 64-bit VS Code in a yum repository, the following script will install the key and repository:
+
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+Then update the package cache and install the package using dnf (Fedora 22 and above):
+
+dnf check-update,dnf如果没有则yum install dnf进行安装
+sudo dnf install code
+
+终端执行code，或配置年快捷方式ctrl+alt+C即可
+插件见code，安装yahei, source code pro, monaco等字体后配置如下：
+preferences->settings->editor font, 写入以上字体即可.注意，权限问题，配置只能写到用户setting中。
+
+
+------------------------------------
+命令行ss install
+------------------------------------
+因为安装图形客户端总是找不到安装源，所以安装了命令行方式的ss
+
+sudo dnf install python-setuptools
+sudo easy_install pip
+sudo pip install shadowsocks
+编辑/etc/shadowsocks.json文件如下：
+
+{
+    "server":"1.1.1.1",             #ss服务器IP
+    "server_port":1035,             #端口
+    "local_address": "127.0.0.1",   #本地ip
+    "local_port":1080,              #本地端口
+    "password":"password",          #连接ss密码
+    "timeout":300,                  #等待超时
+    "method":"rc4-md5",             #加密方式
+}
+
+sslocal -c /etc/shadowsocks.json	运行ss
+sudo sslocal -c /etc/shadowsocks.json -d start	后台运行ss
+
+新建启动脚本文件/etc/systemd/system/shadowsocks.service，内容如下：
+
+[Unit]
+Description=Shadowsocks
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/usr/bin/sslocal -c /etc/shadowsocks.json
+
+[Install]
+WantedBy=multi-user.target
+
+执行以下命令启动 shadowsocks 服务且开机启动：
+$ systemctl enable shadowsocks
+$ systemctl start shadowsocks
+为了检查 shadowsocks 服务是否已成功启动，可以执行以下命令查看服务的状态：
+
+$ systemctl status shadowsocks -l
+
+生成pac文件进行自动代理：
+# 安装
+$ sudo pip install genpac
+$ sudo pip install https://github.com/JinnLynn/genpac/archive/master.zip
+# 配置GFW ，生成pac文件
+$ genpac --pac-proxy "SOCKS5 127.0.0.1:1080" --gfwlist-url="https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt" --output="~/Documents/pac/autoproxy.pac"
+
+该pac文件在当前用户目录，此时可以使用浏览器代理插件switchomega等，但也可在fedora的网络中进行代理设置，选择Network proxy-->Automatic, file:///home/wang/Documents/pac/autoproxy.pac即可
+
+--------------------------
+proxychains
+--------------------------
+proxychains可以使用shadowsocks进行全局代理。使用以下命令安装
+sudo dnf install proxychains-ng
+sudo vim /etc/proxychains.conf	
+默认的socks4 127.0.0.1 9095是tor代理，而socks5 127.0.0.1 1080是shadowsocks的代理,修改之。在需要代理的命令前加上 proxychains4 ，如：
+proxychains4 wget http://xxx.com/xxx.zip
+
+---------------------------
+xx-net
+---------------------------
+解压到任意目录，运行./start即可。
+开机自启：在/etc/rc.local中添加一行：sudo /home/username/xxnet/xx_net.sh start
+---------------------
+应用程序键盘快捷方式
+---------------------
+在设置--》键盘中进行定义，如设置ctrl+alt+t运行终端，命令为/usr/bin/gnome-terminal
+--------------------
+卸载libre，安装wps
+--------------------
+sudo dnf remove libreoffice*
+http://community.wps.cn/download/ 下载wpsrpm
+sudo dnf install wps-office.rpm 或直接双击安装
+安装完成后ppt不能运行，执行sudo ln -s /lib64/libbz2.so.1 /lib64/libbz2.so.1.0解决
+---------------------
+安装文泉驿字体，及调整字体，没什么用, 然后下载了雅黑、monago等字体，双击安装即可
+---------------------
+sudo dnf install gnome-tweak-tool
+sudo dnf install wqy-bitmap-fonts wqy-unibit-fonts wqy-zenhei-fonts wqy-microhei-fonts -y
+然后使用tweak-tool进行配置，前面三个使用yahei，终端（等宽字体）使用monago
+---------------------
+node, yarn，源配置，angluar/cli
+---------------------
+sudo dnf install nodejs
+sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo	#添加yarn仓库
+sudo dnf install yarn
+yarn config set registry 'https://registry.npm.taobao.org'	#使用淘宝源，npm也可如此
+sudo yarn global add @angular/cli
+ng set --global packageManager=yarn	#设置angular/cli的包管理器为yarn
+
+--------------
+wireshark
+--------------
+How to install
+
+In order to install the Wireshark GUI from repositories, simply type…
+
+$ sudo dnf install wireshark-qt
+
+…into a terminal. This will install both Qt and the CLI version of Wireshark. At this point, you can use Wireshark as root, but it is generally considered a bad practice. Therefore, we will set up permissions for regular users to capture on network interfaces (see below about security implications).
+
+Then, Setting permissions
+
+During installation, a system group called wireshark was created. Users in this group can capture network traffic. All you need to do is to add your user account into the group like this, substituting your username for username:
+
+$ sudo usermod -a -G wireshark wang 
+Then log out and in again and you are ready to go!
+------------
+stardict
+------------
+youdao词典始终运行不成功，放弃，安装stardict。
+运行rpm包安装，然后拷贝词典
+tar -xjvf stardict-langdo.tar.bz2 -C /usr/share/stardict/dic
+--------------
+VirtualBox
+--------------
+sudo dnf install VirtualBox
+Kernel driver not installed (rc=-1908)
+The VirtualBox Linux kernel driver (vboxdrv) is probably not loaded.You may not have kernel driver installed for kernel that is runnig, if so you may do as root: dnf install akmod-VirtualBox kernel-devel-$(uname -r)If you installed VirtualBox packages and don't want reboot the system, you may need load the kernel driver, doing as root: akmods; systemctl restart systemd-modules-load.service
+sudo dnf update
+--------------------------------------------------------
+GCP SSserver，需google账号和visa/MasterCard，免费1年
+--------------------------------------------------------
+访问cloud.google.com，选择免费试用，进行注册之类...
+左侧菜单计算引擎->VM实例，建议：地区选择asia-east1-c(google亚洲骨干)，小型，允许http/https，磁盘CentOS，网络静态
+进入VM实例的ssh，选择浏览器打开后进入shell，安装ss
+sudo su
+yum -y install python-setuptools
+easy_install pip
+pip install shadowsocks
+
+vim /etc/shadowsocks.json   #配置文件，内容如下
+        {
+        "server": "0.0.0.0",
+        "server_port": 8964,
+        "password": "XXXXX",
+        "method": "aes-256-cfb"
+        }
+
+vim /etc/systemd/system/shadowsocks.service     #新建ss服务如下
+        [Unit]
+        Description=Shadowsocks
+
+        [Service]
+        TimeoutStartSec=0
+        ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json
+        ExecReload=/bin/kill -HUP $MAINPID
+        ExecStop=/bin/kill -s QUIT $MAINPID
+        PrivateTmp=true
+        KillMode=process
+
+        [Install]
+        WantedBy=multi-user.target
+systemctl enable shadowsocks    #使其生效
+systemctl start/stop/reload shadowsocks
+systemctl status shadowsocks -l #可查看状态
+wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh    #下载BBR拥塞控制
+sh bbr.sh   #安装，完成后要求重启
+sysctl net.ipv4.tcp_available_congestion_control    #运行该命令后出现bbr则ok
+最后一定需要在GCP的控制台对网络->防火墙规则进行设置
+使得0.0.0.0.0/0入站的8964端口对所有实例生效
+
