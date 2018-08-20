@@ -3,7 +3,8 @@
 1. i3's configure file--> ~/.i3/config, 
 2. i3status's configure file --> /etc/i3status.conf,
 3. URxvt‘s configure file --> ~/.Xresources
-
+----
+### install manjaro-i3 17.1.11, bios
 ### 桌面组件conky，默认是i3配置文件中启动/usr/bin/start_conky_maia脚本，该脚本加载了/usr/share/conky目录下的两个配置文件，分别是右上角的conky_maia和conky1.10_shrotcuts_maia
 
 ### $mod+9将lock screen，这是通过执行/usr/bin/blurlock脚本实现的，查看该脚本可见：先屏幕快照->模糊化->删除快照->执行i3lock，可以调整模糊的程度
@@ -45,7 +46,7 @@ sudo nano ~/.xprofile
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
-保存成功后，在终端输入fcitx启动服务。
+保存成功后，在终端输入fcitx启动服务??
 
 以上是否需要这么复杂还可考虑？
 我使用了google，默认的拼音难用，但似乎google不能配置，已经设置fcitx自动运行，且使用morc_menu的fcitx config设置了shift切换和<>翻页、模糊音等。
@@ -56,7 +57,7 @@ Manjaro linux 安装笔记
 8. http://jimolonely.github.io/2017/12/27/linux/001-linux-manjaro/
 ================URvxt终端字体====================================
 ##antialias为平滑，需要一个中文字体
-9. sudo pacman -S ttf-monaco wqy-microhei && vim ~/.Xresource
+9. sudo pacman -S ttf-monaco wqy-microhei (install it by GUI) && vim ~/.Xresource
 URxvt.font:xft:Monaco:pixelsize=16:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:antialias=true
 URxvt.boldFont:xft:Monaco:pixelsize=16:Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:Bold:antialias=true
 
