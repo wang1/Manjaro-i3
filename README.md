@@ -19,6 +19,7 @@
 > 2. https://ohmyarch.github.io/2017/01/15/Linux下终极字体配置方案 
 > 1. https://fontawesome.com/cheatsheet (开源图标字体，直接复制粘贴使用)
 > 3. https://www.jianshu.com/p/cf14660d8af2 (#Manjaro-i3的配置)
+> 3. GUI install proxychains-ng, then edit /etc/proxychains.conf file, replace "sock4..." at the end
 > 4. `sudo pacman -S remmina freerdp`，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
 > 5. google-chrome/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
 > 6. morc_menu中动Arandr可进行双显示器设置，拖动即可
