@@ -14,13 +14,10 @@
 > Refrences:
 > 1. http://www.php-master.com/post/258672.html
 > 1. http://www.cnblogs.com/vachester/p/5649813.html
-> 1. https://dev.to/lobo_tuerto/you-need-to-know-about-i3-363c  
-#fonts configure
-> 2. https://ohmyarch.github.io/2017/01/15/Linux下终极字体配置方案
-#开源图标字体，直接复制粘贴使用
-> 1. https://fontawesome.com/cheatsheet
-#Manjaro-i3的配置
-> 3. https://www.jianshu.com/p/cf14660d8af2
+> 1. https://dev.to/lobo_tuerto/you-need-to-know-about-i3-363c  (fonts configure)
+> 2. https://ohmyarch.github.io/2017/01/15/Linux下终极字体配置方案 
+> 1. https://fontawesome.com/cheatsheet (开源图标字体，直接复制粘贴使用)
+> 3. https://www.jianshu.com/p/cf14660d8af2 (#Manjaro-i3的配置)
 > 4. `sudo pacman -S remmina freerdp`，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
 > 5. google-chrome/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
 > 6. morc_menu中动Arandr可进行双显示器设置，拖动即可
@@ -53,11 +50,6 @@ export XMODIFIERS="@im=fcitx"
 以上是否需要这么复杂还可考虑？
 我使用了google，默认的拼音难用，但似乎google不能配置，已经设置fcitx自动运行，且使用morc_menu的fcitx config设置了shift切换和<>翻页、模糊音等。
 
-=======================
-
-====================
-
-#
 Manjaro linux 安装笔记
 7. https://www.jianshu.com/p/6e9eb98c0494
 配置manjaro
@@ -68,11 +60,8 @@ Manjaro linux 安装笔记
 URxvt.font:xft:Monaco:pixelsize=16:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:antialias=true
 URxvt.boldFont:xft:Monaco:pixelsize=16:Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:Bold:antialias=true
 
-执行xrdb -load ~/.Xresources生效
-======================================================
+执行xrdb -load ~/.Xresources生效(maybe need reboot)
 
-
-======================================
 
 ######################################################################
 #                            oh-my-i3
