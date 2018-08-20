@@ -8,6 +8,9 @@
 
 ### $mod+9将lock screen，这是通过执行/usr/bin/blurlock脚本实现的，查看该脚本可见：先屏幕快照->模糊化->删除快照->执行i3lock，可以调整模糊的程度
 
+### X1C 的默认 BIOS 配置下 Thunderbolt BIOS Assist Mode 是 Disable 的，这会导致 Linux 在 s2idle 下的能耗特别高（温度平均46，平均功率约8.5w）。故需要进 BIOS 将其设置为 Enable，如此则温度降至40以下，功率也骤降至4-6w左右，办公续航轻松上11h
+
+
 > Refrences:
 > 1. http://www.php-master.com/post/258672.html
 > 1. http://www.cnblogs.com/vachester/p/5649813.html
@@ -76,7 +79,7 @@ URxvt.boldFont:xft:Monaco:pixelsize=16:Bold:antialias=true,xft:WenQuanYi Micro H
 # Date    : 12/12/2015
 # Author  : Allen_Qiu
 # Version : v1.1
-#
+#Mo
 # 依赖:conky feh (可选推荐:xcompmgr freetype-infinality)
 # 部分特性可能需要新版本支持，请更新至最新版本或自行修改相应部分
 # 更多内容请参考:
