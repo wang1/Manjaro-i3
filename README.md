@@ -4,7 +4,7 @@
 2. i3status's configure file --> /etc/i3status.conf,
 3. URxvt‘s configure file --> ~/.Xresources
 ----
-### install manjaro-i3 17.1.11, bios
+### install manjaro-i3 17.1.11, in bios, set Security -> Secure Boot - Set to "Disabled"
 ### 桌面组件conky，默认是i3配置文件中启动/usr/bin/start_conky_maia脚本，该脚本加载了/usr/share/conky目录下的两个配置文件，分别是右上角的conky_maia和conky1.10_shrotcuts_maia
 
 ### $mod+9将lock screen，这是通过执行/usr/bin/blurlock脚本实现的，查看该脚本可见：先屏幕快照->模糊化->删除快照->执行i3lock，可以调整模糊的程度
