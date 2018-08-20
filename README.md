@@ -10,25 +10,35 @@
 
 > Refrences:
 > 1. http://www.php-master.com/post/258672.html
-0. http://www.cnblogs.com/vachester/p/5649813.html
-1. https://dev.to/lobo_tuerto/you-need-to-know-about-i3-363c  
+> 1. http://www.cnblogs.com/vachester/p/5649813.html
+> 1. https://dev.to/lobo_tuerto/you-need-to-know-about-i3-363c  
 #fonts configure
-2. https://ohmyarch.github.io/2017/01/15/Linux下终极字体配置方案
+> 2. https://ohmyarch.github.io/2017/01/15/Linux下终极字体配置方案
 #开源图标字体，直接复制粘贴使用
-https://fontawesome.com/cheatsheet
+> 1. https://fontawesome.com/cheatsheet
 #Manjaro-i3的配置
-3. https://www.jianshu.com/p/cf14660d8af2
-4. sudo pacman -S remmina freerdp，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
-5. google-chrome/fcitx/nitrogen壁纸/shadowsocks（ss-qt5运行后可配置开机启动及最小化）/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
+> 3. https://www.jianshu.com/p/cf14660d8af2
+> 4. `sudo pacman -S remmina freerdp`，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
+> 5. google-chrome/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
+> 6. morc_menu中动Arandr可进行双显示器设置，拖动即可
+> 6. 安装中文输入法
+`sudo pacman -S fcitx
+sudo pacman -S fcitx-configtool   ----配置工具
+sudo pacman -S fcitx-sogoupinyin    ----可选安装，fcitx默认已有中文输入
+`
+在 Fcitx 支持的拼音输入法中，内置拼音响应速度最快。Fcitx 同样支持流行的第三方拼音输入法以提供更好的整句输入效果.
+另外更多输入法参考：https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
 
-morc_menu中动Arandr可进行双显示器设置，拖动即可
-6. 
-安装中文输入法
-以安装搜狗为例
+配置文件：
+sudo nano ～/.xprofile
+添加一下内容：
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+注销用户重新登录。
+done
 
-sudo pacman -S fcitx-sogoupinyin
-sudo pacman -S fcitx-im
-sudo pacman -S fcitx-configtool
+
 设置中文输入法环境变量，否则中文输入法无法启动
 
 sudo nano ~/.xprofile
