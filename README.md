@@ -1,8 +1,10 @@
 # Manjaro -i3的配置记录和相关文件
-### 三个配置文件及其位置
+### 配置文件及其位置
 1. i3's configure file--> ~/.i3/config, 
 2. i3status's configure file --> /etc/i3status.conf,
 3. URxvt‘s configure file --> ~/.Xresources
+4. 輸入法等配置文件--> ~/.profile
+5. 引導菜單grub的配置 --> /etc/default/grub
 ----
 ### install manjaro-i3 17.1.11, in bios, set Security -> Secure Boot - Set to "Disabled"
 ### 桌面组件conky，默认是i3配置文件中启动/usr/bin/start_conky_maia脚本，该脚本加载了/usr/share/conky目录下的两个配置文件，分别是右上角的conky_maia和conky1.10_shrotcuts_maia
@@ -11,6 +13,14 @@
 
 ### X1C 的默认 BIOS 配置下 Thunderbolt BIOS Assist Mode 是 Disable 的，这会导致 Linux 在 s2idle 下的能耗特别高（温度平均46，平均功率约8.5w）。故需要进 BIOS 将其设置为 Enable，如此则温度降至40以下，功率也骤降至4-6w左右，办公续航轻松上11h
 
+### Sleep
+
+    This did not work out of the box, but was easily fixed by doing the following (Assuming you are using GRUB):
+Add `acpi.ec_no_wakeup=1` To your kernel parameters (/etc/default/grub -> GRUB_CMDLINE_LINUX_DEFAULT)
+
+Then edit `/etc/systemd/logind.conf` and make sure you have an uncommented line like this: `HandleLidSwitch=suspend`
+
+Now when you close the lid, the machine will sleep. When you open it, you'll just have to press the button to get it to come back. This might be annoying for some users, but that's how I'm used to waking up my machine.
 
 > Refrences:
 > 1. http://www.php-master.com/post/258672.html
