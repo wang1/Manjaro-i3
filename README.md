@@ -17,17 +17,17 @@
 安装后：
 1. 设置更新。联网后，使用右下角的更新图标，使用preferences设置镜像位置为china，并刷新列表（自动找到最快的源），启用AUR（Arch User respoisity），然后进行更新
 2. 安装中文输入法
-`sudo pacman -S fcitx
+```sudo pacman -S fcitx
 sudo pacman -S fcitx-im     ----全部安装，保证图形界面可用
 sudo pacman -S fcitx-configtool   ----配置工具
 sudo pacman -S googlepinyin    ----但不能进行模糊音设置
-`
+```
 然后打开`～/.xprofile`文件，添加一下内容：
-`export GTK_IM_MODULE=fcitx
+```export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 fcitx -d -r
-`
+```
 注销用户重新登录,OK。
 
 ### Sleep
