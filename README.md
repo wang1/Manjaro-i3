@@ -12,10 +12,19 @@
 安装前，进入本本的win10，lenovo将自动对bios进行升级。使用dd/rufus制作启动盘并进行以下bios设置：
 1. 在X1C6th（i7cpu8650/16G/512G）安装manjaro-i3 17.1.11, 因该本本预安装win10，需在bios中设置`Security -> Secure Boot - Set to "Disabled"`才能从U盘启动
 2. X1C 的默认 BIOS 配置下 Thunderbolt BIOS Assist Mode 是 Disable 的，这会导致 Linux 在 s2idle 下的能耗特别高（温度平均46，平均功率约8.5w）。故需要进 BIOS 将其设置为 Enable，如此则温度降至40以下，功率也骤降至4-6w左右，办公续航轻松上11h
-3.另外将memory card reader、camery、fingerprint等禁用以节约功耗
+3. 另外将memory card reader、camery、fingerprint等禁用以节约功耗
 -----
-安装后：
+安装后，因X1C分辨率为2560×1440，字体太小，故进行整体界面放大：
+1. 打开~/Xresources，修改`Xft.dpi`为140，值越大，字体越大，重新登录生效。bar的字体在`～/.i3/config`中可调节，右上角的字体在`/usr/share/conky/conky_maia`，右下角的字体在`usr/share/conky/conky1.10_shortcuts_maia`文件中调整
 1. 设置更新。联网后，使用右下角的更新图标，使用preferences设置镜像位置为china，并刷新列表（自动找到最快的源），启用AUR（Arch User respoisity），然后进行更新
+2. URvxt终端字体。（antialias为平滑，需要一个中文字体）
+```sudo yaourt -S ttf-monaco wqy-microhei (或者install it by GUI)```
+编辑~/.Xresource文件，对应位置修改如下
+```
+URxvt.font:xft:Monaco:pixelsize=16:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:antialias=true
+URxvt.boldFont:xft:Monaco:pixelsize=16:Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:Bold:antialias=true
+```
+执行xrdb -load ~/.Xresources生效(maybe need reboot)
 2. 安装中文输入法
 ```sudo pacman -S fcitx
 sudo pacman -S fcitx-im     ----全部安装，保证图形界面可用
@@ -28,7 +37,12 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 fcitx -d -r
 ```
-注销用户重新登录,OK。
+注销用户重新登录，点击右下角图标进行配置（设置shift切换和< >翻页等）。
+3. GUI install proxychains-ng, then edit /etc/proxychains.conf file, replace "sock4..." at the end
+4. `sudo pacman -S remmina freerdp`，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
+5. google-chrome/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
+6. morc_menu中动Arandr可进行双显示器设置，拖动即可
+
 
 ### Sleep
 
@@ -46,34 +60,13 @@ Now when you close the lid, the machine will sleep. When you open it, you'll jus
 > 2. https://ohmyarch.github.io/2017/01/15/Linux下终极字体配置方案 
 > 1. https://fontawesome.com/cheatsheet (开源图标字体，直接复制粘贴使用)
 > 3. https://www.jianshu.com/p/cf14660d8af2 (#Manjaro-i3的配置)
-> 3. GUI install proxychains-ng, then edit /etc/proxychains.conf file, replace "sock4..." at the end
-> 4. `sudo pacman -S remmina freerdp`，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
-> 5. google-chrome/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
-> 6. morc_menu中动Arandr可进行双显示器设置，拖动即可
-> 6. 
 
-设置中文输入法环境变量，否则中文输入法无法启动
-
-sudo nano ~/.xprofile
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-保存成功后，在终端输入fcitx启动服务??
-
-以上是否需要这么复杂还可考虑？
-我使用了google，默认的拼音难用，但似乎google不能配置，已经设置fcitx自动运行，且使用morc_menu的fcitx config设置了shift切换和<>翻页、模糊音等。
 
 Manjaro linux 安装笔记
 7. https://www.jianshu.com/p/6e9eb98c0494
 配置manjaro
 8. http://jimolonely.github.io/2017/12/27/linux/001-linux-manjaro/
-================URvxt终端字体====================================
-##antialias为平滑，需要一个中文字体
-9. sudo pacman -S ttf-monaco wqy-microhei (install it by GUI) && vim ~/.Xresource
-URxvt.font:xft:Monaco:pixelsize=16:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:antialias=true
-URxvt.boldFont:xft:Monaco:pixelsize=16:Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:pixelsize=16:Bold:antialias=true
 
-执行xrdb -load ~/.Xresources生效(maybe need reboot)
 
 
 ######################################################################
