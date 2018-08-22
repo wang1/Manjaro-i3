@@ -37,16 +37,13 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 fcitx -d -r
 ```
-注销用户重新登录，点击右下角图标进行配置（设置shift切换和< >翻页等）。
+注销用户重新登录，点击右下角图标进行配置（设置shift切换和< >翻页等）
+
 3. GUI install proxychains-ng, then edit /etc/proxychains.conf file, replace "sock4..." at the end
 4. `sudo pacman -S remmina freerdp`，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
-5. google-chrome/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
+5. google-chrome/firefox/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
 6. morc_menu中动Arandr可进行双显示器设置，拖动即可
-
-
-### Sleep
-
-    This did not work out of the box, but was easily fixed by doing the following (Assuming you are using GRUB):
+7. This did not work out of the box, but was easily fixed by doing the following (Assuming you are using GRUB):
 Add `acpi.ec_no_wakeup=1` To your kernel parameters (/etc/default/grub -> GRUB_CMDLINE_LINUX_DEFAULT)
 
 Then edit `/etc/systemd/logind.conf` and make sure you have an uncommented line like this: `HandleLidSwitch=suspend`
