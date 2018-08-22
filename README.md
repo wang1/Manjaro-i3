@@ -4,15 +4,31 @@
 2. i3status's configure file --> /etc/i3status.conf,
 3. URxvt‘s configure file --> ~/.Xresources
 4. 輸入法等配置文件--> ~/.profile
-5. 引導菜單grub的配置 --> /etc/default/grub
+5. 引導菜單grub的配置文件 --> /etc/default/grub
+6. 桌面组件conky，默认是i3配置文件中启动/usr/bin/start_conky_maia脚本，该脚本加载了/usr/share/conky目录下的两个配置文件，分别是右上角的conky_maia和conky1.10_shrotcuts_maia
+7. $mod+9将lock screen，这是通过执行/usr/bin/blurlock脚本实现的，查看该脚本可见：先屏幕快照->模糊化->删除快照->执行i3lock，可以调整模糊的程度
 ----
-### install manjaro-i3 17.1.11, in bios, set Security -> Secure Boot - Set to "Disabled"
-### 桌面组件conky，默认是i3配置文件中启动/usr/bin/start_conky_maia脚本，该脚本加载了/usr/share/conky目录下的两个配置文件，分别是右上角的conky_maia和conky1.10_shrotcuts_maia
-
-### $mod+9将lock screen，这是通过执行/usr/bin/blurlock脚本实现的，查看该脚本可见：先屏幕快照->模糊化->删除快照->执行i3lock，可以调整模糊的程度
-
-### X1C 的默认 BIOS 配置下 Thunderbolt BIOS Assist Mode 是 Disable 的，这会导致 Linux 在 s2idle 下的能耗特别高（温度平均46，平均功率约8.5w）。故需要进 BIOS 将其设置为 Enable，如此则温度降至40以下，功率也骤降至4-6w左右，办公续航轻松上11h
-### Via the BIOS, you can disable the small memory card reader (assuming you aren't using it) to save yourself 2-3W.
+### 安装过程
+安装前，进入本本的win10，lenovo将自动对bios进行升级。使用dd/rufus制作启动盘并进行以下bios设置：
+1. 在X1C6th（i7cpu8650/16G/512G）安装manjaro-i3 17.1.11, 因该本本预安装win10，需在bios中设置`Security -> Secure Boot - Set to "Disabled"`才能从U盘启动
+2. X1C 的默认 BIOS 配置下 Thunderbolt BIOS Assist Mode 是 Disable 的，这会导致 Linux 在 s2idle 下的能耗特别高（温度平均46，平均功率约8.5w）。故需要进 BIOS 将其设置为 Enable，如此则温度降至40以下，功率也骤降至4-6w左右，办公续航轻松上11h
+3.另外将memory card reader、camery、fingerprint等禁用以节约功耗
+-----
+安装后：
+1. 设置更新。联网后，使用右下角的更新图标，使用preferences设置镜像位置为china，并刷新列表（自动找到最快的源），启用AUR（Arch User respoisity），然后进行更新
+2. 安装中文输入法
+`sudo pacman -S fcitx
+sudo pacman -S fcitx-im     ----全部安装，保证图形界面可用
+sudo pacman -S fcitx-configtool   ----配置工具
+sudo pacman -S googlepinyin    ----但不能进行模糊音设置
+`
+然后打开`～/.xprofile`文件，添加一下内容：
+`export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+fcitx -d -r
+`
+注销用户重新登录,OK。
 
 ### Sleep
 
@@ -34,23 +50,7 @@ Now when you close the lid, the machine will sleep. When you open it, you'll jus
 > 4. `sudo pacman -S remmina freerdp`，远程登录工具remmina，支持各种协议（需另外安装freerdp），logout/reboot生效
 > 5. google-chrome/nitrogen壁纸/shadowsocks/stardict/wps-office/ttf-wps-fonts/visual-studio-code-bin
 > 6. morc_menu中动Arandr可进行双显示器设置，拖动即可
-> 6. 安装中文输入法
-`sudo pacman -S fcitx
-sudo pacman -S fcitx-configtool   ----配置工具
-sudo pacman -S fcitx-sogoupinyin    ----可选安装，fcitx默认已有中文输入
-`
-在 Fcitx 支持的拼音输入法中，内置拼音响应速度最快。Fcitx 同样支持流行的第三方拼音输入法以提供更好的整句输入效果.
-另外更多输入法参考：https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
-
-配置文件：
-sudo nano ～/.xprofile
-添加一下内容：
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-注销用户重新登录。
-done
-
+> 6. 
 
 设置中文输入法环境变量，否则中文输入法无法启动
 
