@@ -135,6 +135,8 @@ done)
 ```
 注意：按该文件前面介绍修改`/etc/i3status.conf`和`～/.i3/config`两个文件
 
+11. 安装oracle vbox后如果出现无virtualbox kernel driver，可使用先查看内核版本`uname -r`，然后`sudo pacman -S linux414-virtualbox-host-modules`，如果出现404错误，则refresh database
+
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
