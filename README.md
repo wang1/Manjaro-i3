@@ -139,6 +139,13 @@ done)
 
 12. 安装nginx，完成后使用`systemctl start/stop/restart nginx`， `systemctl enable nginx`设置开机启动，配置文件在`/etc/nginx/nginx.conf`。如果出现forbiden，则修改配置文件中`user qige`，qige为网站目录的所有者或nginx的运行者
 
+13. 使用arandr设置双显示器后，重启就失效了。需将设置保存为`normal.sh`，然后在`~/.i3/config`中写入`exec ~/.screenlayou/normal.sh`
+
+14. 安装 rofi 代替 dmenu    安装 xfce4-terminal 代替urxvt   设置 conky 主题 关闭 i3status   (暂未执行)
+    
+15. chrome 支持命令行配置代理，在无法访问chrome 商店下载 SwitchyOmega 前，可以使用 google-chrome-stable --proxy-server="socks5://127.0.0.1:1080" www.google.com 命令启动进行登录谷歌账号(你需要先设置好ss)
+
+
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
