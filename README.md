@@ -3,6 +3,7 @@
 1. i3's configure file--> ~/.i3/config, 
 2. i3status's configure file --> /etc/i3status.conf,
 3. URxvt‘s configure file --> ~/.Xresources
+3. morc_menu的配置文件 --> ~/.config/morc_menu/morc_menu_v1.conf，可设置宽度等
 4. 輸入法等配置文件--> ~/.profile
 5. 引導菜單grub的配置文件 --> /etc/default/grub
 6. 桌面组件conky，默认是i3配置文件中启动/usr/bin/start_conky_maia脚本，该脚本加载了/usr/share/conky目录下的两个配置文件，分别是右上角的conky_maia和conky1.10_shrotcuts_maia
