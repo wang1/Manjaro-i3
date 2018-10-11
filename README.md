@@ -146,7 +146,7 @@ done)
     
 15. chrome 支持命令行配置代理，在无法访问chrome 商店下载 SwitchyOmega 前，可以使用 google-chrome-stable --proxy-server="socks5://127.0.0.1:1080" www.google.com 命令启动进行登录谷歌账号(你需要先设置好ss)
 
-16. TIM，先GUI安装deepin-wine-tim，然后下载其AppImage文件（http://yun.tzmm.com.cn/index.php/s/5hJNzt2VR9aIEF2）AppImage 是一种把应用打包成单一文件的格式，只需要赋予可执行权限即可使用。(开始还能使用，后来只能sudo .TIM-x86_64.AppImage在终端使用了)
+16. TIM，先GUI安装deepin-wine-tim(按说明是不需要安装的，但估计AppImage缺少一些wine的库文件)，然后下载其AppImage文件（http://yun.tzmm.com.cn/index.php/s/5hJNzt2VR9aIEF2）AppImage 是一种把应用打包成单一文件的格式，只需要赋予可执行权限即可使用。(开始还能使用，后来只能sudo .TIM-x86_64.AppImage在终端使用了)
 
 17. Tor-Browser，去官网下载压缩文件，解压后直接执行即可（AUR仓库由于GFW限制不能成功）
 
