@@ -150,6 +150,8 @@ done)
 
 17. Tor-Browser，去官网下载压缩文件，解压后直接执行即可（AUR仓库由于GFW限制不能成功）
 
+18. WPS Office安装后，对应的启动命令是（wps/et/wpp)，但由于版权原因，缺少中文字体，下载simsun/simfang/simhei/simkai等中文字体，`sudo mkdir /usr/share/fonts/WindowsFonts`，然后拷贝以上字体文件到该目录，然后`chmod 755 /usr/share/fonts/WindowsFonts/*`，最后重建字体缓存`fc-cache -f`。因为是英文系统故对其它程序没有影响，否则由于在系统中加入了宋体，而部分应用程序又将宋体作为默认字体，显示难看需要进一步调整。
+
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
