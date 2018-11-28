@@ -156,6 +156,8 @@ done)
 `xinput list    #查看当前鼠标的id，如id为11,则
  xinput set-button-map 11 3 2 1   #调换，即可生效。改为1 2 3则换回
 `
+
+20. 系统默认浏览器设置为chrome，可从`mod+z-->settings-->preferred applications`中选择，如果不成功，也可编辑`.profile`文件，加入`export BROWSER=/usr/bin/google-chrome-stable`，同时编辑`~/.congfig/mimeapps.list`文件，修改为`google-chrome.desktop`
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
