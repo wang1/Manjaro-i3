@@ -140,7 +140,7 @@ done)
 
 12. 安装nginx，完成后使用`systemctl start/stop/restart nginx`， `systemctl enable nginx`设置开机启动，配置文件在`/etc/nginx/nginx.conf`。如果出现forbiden，则修改配置文件中`user qige`，qige为网站目录的所有者或nginx的运行者
 
-13. 使用arandr设置双显示器后，重启就失效了。需将设置保存为`normal.sh`，然后在`~/.i3/config`中写入`exec ~/.screenlayou/normal.sh`
+13. 使用arandr设置双显示器后，重启就失效了。在arandr中将设置保存为`normal.sh`，添加执行权限，然后在`~/.i3/config`中写入`exec ~/.screenlayou/normal.sh`
 
 14. 安装 rofi 代替 dmenu    安装 xfce4-terminal 代替urxvt   设置 conky 主题 关闭 i3status   (暂未执行)
     
@@ -152,6 +152,10 @@ done)
 
 18. WPS Office安装后，对应的启动命令是（wps/et/wpp)，但由于版权原因，缺少中文字体，下载simsun/simfang/simhei/simkai等中文字体，`sudo mkdir /usr/share/fonts/WindowsFonts`，然后拷贝以上字体文件到该目录，然后`chmod 755 /usr/share/fonts/WindowsFonts/*`，最后重建字体缓存`fc-cache -f`。因为是英文系统故对其它程序没有影响，否则由于在系统中加入了宋体，而部分应用程序又将宋体作为默认字体，显示难看需要进一步调整。
 
+19. 使用系统菜单对鼠标左右调整，但重启后失效，所以使用命令行进行。将以下命令添加到`～/.i3/config`文件的自启动部分：
+`xinput list    #查看当前鼠标的id，如id为11,则
+ xinput set-button-map 11 3 2 1   #调换，即可生效。改为1 2 3则换回
+`
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
