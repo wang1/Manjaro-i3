@@ -158,6 +158,8 @@ done)
 `
 
 20. 系统默认浏览器设置为chrome，可从`mod+z-->settings-->preferred applications`中选择，如果不成功，也可编辑`.profile`文件，加入`export BROWSER=/usr/bin/google-chrome-stable`，同时编辑`~/.congfig/mimeapps.list`文件，修改为`google-chrome.desktop`
+
+21. Manjaro默认已安装OpenSSH Server, 只需运行`systemctl enable/start/restart sshd.service`即可(开机运行/即可启动/重启)
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
