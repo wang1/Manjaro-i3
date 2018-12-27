@@ -138,7 +138,7 @@ done)
 
 11. 安装oracle vbox后如果出现无virtualbox kernel driver，可使用先查看内核版本`uname -r`，然后`sudo pacman -S linux414-virtualbox-host-modules`，如果出现404错误，则refresh database
     但是, Vbox窗口非常难以调节, 我改用了VM. 通过GUI方式安装失败, 手动安装过程如下: 
-    `
+    ```
      sudo mkdir /etc/init.d #VM需要, 确认有该目录
      sudo pacman -S linux414-headers  #安装header文件, 对应当前的Linux版本, 可用uname查看
      #官网下载VM Pro Workstration后
@@ -148,7 +148,7 @@ done)
      sudo systemctl start vmware  #开始系统服务
      sudo systemctl enable vmware #设置开机启动
      vmware & #终端启动程序
-    `
+    ```
 
 12. 安装nginx，完成后使用`systemctl start/stop/restart nginx`， `systemctl enable nginx`设置开机启动，配置文件在`/etc/nginx/nginx.conf`。如果出现forbiden，则修改配置文件中`user qige`，qige为网站目录的所有者或nginx的运行者
 
