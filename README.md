@@ -172,6 +172,8 @@ done)
 20. 系统默认浏览器设置为chrome，可从`mod+z-->settings-->preferred applications`中选择，如果不成功，也可编辑`.profile`文件，加入`export BROWSER=/usr/bin/google-chrome-stable`，同时编辑`~/.congfig/mimeapps.list`文件，修改为`google-chrome.desktop`
 
 21. Manjaro默认已安装OpenSSH Server, 只需运行`systemctl enable/start/restart sshd.service`即可(开机运行/即可启动/重启)
+
+22. 安装wireshark后运行不会有interface, 因为wireshark做了权限隔离, 也不推荐使用root运行, 需要将当前用户添加到wireshark组.`gpasswd -a yourusername wireshark`
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
