@@ -174,6 +174,21 @@ done)
 21. Manjaro默认已安装OpenSSH Server, 只需运行`systemctl enable/start/restart sshd.service`即可(开机运行/即可启动/重启)
 
 22. 安装wireshark后运行不会有interface, 因为wireshark做了权限隔离, 也不推荐使用root运行, 需要将当前用户添加到wireshark组.`gpasswd -a yourusername wireshark`
+
+23. 在一次较久未升级后进行系统升级,中间在编译某软件时我终止了升级过程, 随后再升级出现`invalid crypto engine`错, 然后查询发现可以如下进行修正:
+```
+sudo pacman-key --init
+sudo pacman-key --populate archlinux manjaro
+sudo pacman-key --refresh-keys
+sudo pacman -Syu
+
+```
+
+但以上命令需要libreadline.so.7文件, 执行以下操作即可: `sudo ln -s /usr/lib/libreadline.so.8 /usr/lib/libreadline.so.7`
+
+
+
+
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
