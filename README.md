@@ -175,7 +175,7 @@ done)
 
 22. 安装wireshark后运行不会有interface, 因为wireshark做了权限隔离, 也不推荐使用root运行, 需要将当前用户添加到wireshark组.`gpasswd -a yourusername wireshark`
 
-23. 在一次较久未升级后进行系统升级,中间在编译某软件时我终止了升级过程, 随后再升级出现`invalid crypto engine`错, 然后查询发现可以如下进行修正:
+23. 在一次较久未升级后进行系统升级,中间在编译某软件(似乎是mongodb)太久了, 我终止了升级过程, 随后无论如何都不能更新, 出现`invalid crypto engine`等错误, 然后查询发现可以如下进行修正:
 ```
 sudo pacman-key --init
 sudo pacman-key --populate archlinux manjaro
