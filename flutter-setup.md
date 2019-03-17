@@ -1,6 +1,6 @@
 # Flutter setup on Manjaro
 > [Flutter中文网站](https://storage.flutter-io.cn/flutter_infra/releases/stable/linux/flutter_linux_v1.2.1-stable.tar.xz)
-1. ###下载flutter(当前1.2.1)安装包, [国内镜像](https://storage.flutter-io.cn/flutter_infra/releases/stable/linux/flutter_linux_v1.2.1-stable.tar.xz), 解压到`home`目录即可(装 Flutter 会附带安装 Dart SDK，所以不需要再对 Dart 进行单独安装), 此时,`Flutter`的安装路径是`~/flutter`
+1. ### 下载flutter(当前1.2.1)安装包, [国内镜像](https://storage.flutter-io.cn/flutter_infra/releases/stable/linux/flutter_linux_v1.2.1-stable.tar.xz), 解压到`home`目录即可(装 Flutter 会附带安装 Dart SDK，所以不需要再对 Dart 进行单独安装), 此时,`Flutter`的安装路径是`~/flutter`
 2. 开发Android方面的App需要`android sdk`等, 安装一个`andriod studio`算了就全部解决了. 使用`yaourt -S anroid-studio`时报告缺sdk, 手动安装后又有权限问题, 故使用了图形界面的安装方式`pacman manager`
    
    ***安装studio时,遇到磁盘空间不足的问题, 如下搞定***
