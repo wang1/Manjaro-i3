@@ -1,7 +1,7 @@
 # Flutter setup on Manjaro
 > [Flutter中文网站](https://storage.flutter-io.cn/flutter_infra/releases/stable/linux/flutter_linux_v1.2.1-stable.tar.xz)
 #### 1. 下载flutter(当前1.2.1)安装包, [国内镜像](https://storage.flutter-io.cn/flutter_infra/releases/stable/linux/flutter_linux_v1.2.1-stable.tar.xz), 解压到`home`目录即可(装 Flutter 会附带安装 Dart SDK，所以不需要再对 Dart 进行单独安装), 此时,`Flutter`的安装路径是`~/flutter`, `Dart`的安装路径是`～flutter/bin/cache/dart-sdk/`
-> 为能在命令行使用`dart和flutter`命令，可编辑环境变量以及设置flutter的国内插件库等(在manjaro上按照官网介绍不能永久生效,而`.bashrc`是每次必须执行的), 所以我在该文件的最后添加如下
+> 为能在命令行使用`dart和flutter`命令，可编辑环境变量以及设置flutter的国内插件库等(在manjaro上按照官网介绍不能永久生效,而`.bashrc`是每次打开终端必须执行的), 所以我在该文件的最后添加如下（也可在系统环境变量文件`/etc/profile`中添加以对所有用户生效）
 
 ```
 export PATH=~/flutter/bin:~/flutter/bin/cache/dart-sdk/bin:$PATH
