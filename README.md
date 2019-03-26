@@ -13,7 +13,7 @@
 安装前，进入本本的win10，lenovo将自动对bios进行升级。使用dd/rufus制作启动盘并进行以下bios设置：
 1. 在X1C6th（i7cpu8650/16G/512G）安装manjaro-i3 17.1.11, 因该本本预安装win10，需在bios中设置`Security -> Secure Boot - Set to "Disabled"`才能从U盘启动
 2. X1C 的默认 BIOS 配置下 Thunderbolt BIOS Assist Mode 是 Disable 的，这会导致 Linux 在 s2idle 下的能耗特别高（温度平均46，平均功率约8.5w）。故需要进 BIOS 将其设置为 Enable，如此则温度降至40以下，功率也骤降至4-6w左右，办公续航轻松上11h
-3. 另外将memory card reader、camera、fingerprint等禁用以节约功耗
+3. 另外将memory card reader、camera, bluetooth, wireless wan等禁用以节约功耗
 -----
 安装后，因X1C分辨率为2560×1440，字体太小，故进行整体界面放大：
 1. 打开~/.Xresources，修改`Xft.dpi`为140，值越大，字体越大，重新登录生效。bar的字体在`～/.i3/config`中可调节，右上角的字体在`/usr/share/conky/conky_maia`，右下角的字体在`usr/share/conky/conky1.10_shortcuts_maia`文件中调整
