@@ -198,7 +198,15 @@ sudo pacman -Syu
  D. 运行命令即可安装：makepkg -sic 
  E. Start packet tracer by executing packettracer or packetraceer.sh file
 ``` 
+26. 截屏：
+```
+import i3.jpg //然后就让你选截屏的区域
+sleep 5;import 213.png    //等待5秒截屏
+import -frame    123.jpg     //截取鼠标点击的那个窗口
+import -windows root   123.png  //截取全屏幕
+```
 
+27. 在安装软件的过程中，如果某种原因未成功，再次运行时会出现等待另一个包管理器退出之类的信息，是因为有锁文件，删除即可（以前我会去进程中kill或重启）`sudo rm /var/lib/pacman/db.lock`
 
 
 
