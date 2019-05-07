@@ -175,7 +175,7 @@ done)
 
 21. Manjaro默认已安装OpenSSH Server, 只需运行`systemctl enable/start/restart sshd.service`即可(开机运行/即可启动/重启)
 
-22. 安装wireshark后运行不会有interface, 因为wireshark做了权限隔离, 也不推荐使用root运行, 需要将当前用户添加到wireshark组.`gpasswd -a yourusername wireshark`
+22. 安装wireshark后运行不会有interface, 因为wireshark做了权限隔离, 也不推荐使用root运行, 需要将当前用户添加到wireshark组.`gpasswd -a yourusername wireshark`(似乎需要重启才生效?)
 
 23. 在一次较久未升级后进行系统升级,中间在编译某软件(似乎是mongodb)太久了, 我终止了升级过程, 随后无论如何都不能更新, 出现`invalid crypto engine`等错误, 然后查询发现可以如下进行修正:
 ```
@@ -189,6 +189,15 @@ sudo pacman -Syu
 但以上命令需要libreadline.so.7文件, 执行以下操作即可: `sudo ln -s /usr/lib/libreadline.so.8 /usr/lib/libreadline.so.7`
 
 24. GoLang开发配置. GUI安装go即可, 然后打开vscode, 安装go插件；新建一个hello.go文件, 将弹出安装相关工具对话框, 但由于有墙且VScode不支持sock5代理, 故安装不能成功. 进入`~/go`目录, 新建`golang.org/x`目录, 执行`git clone https://github.com/golang/tools.git`和`git clone https://github.com/golang/lint.git`命令, 然后在vscode中调出命令面板, 输入`Go: Install/Update Tools`安装即可
+
+25. Cisco Packet Tracer安装：
+```
+ A. Download Packet Tracer 7.2.1 from official web site or https://www.sysnettechsolutions.com/en/ciscopackettracer/download-cisco-packet-tracer-7-2/
+ B. git clone https://aur.archlinux.org/packettracer.git
+ C. 将上面的安装文件复制到pachettracer目录，并进入该目录
+ D. 运行命令即可安装：makepkg -sic 
+ E. Start packet tracer by executing packettracer or packetraceer.sh file
+``` 
 
 
 
