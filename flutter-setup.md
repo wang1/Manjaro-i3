@@ -8,6 +8,7 @@ export PATH=~/flutter/bin:~/flutter/bin/cache/dart-sdk/bin:$PATH
 export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 export PUB_HOSTED_URL=https://pub.flutter-io.cn
 ```
+> 但以上配置只针对终端窗口有效， 故vscode有时也发生问题， 特别在pakage get时。现在将以上命令写到环境文件`～/.profile`中，OK了。
 #### 2. 开发Android方面的App需要`android sdk`等, 安装一个`andriod studio`算了就全部解决了. 使用`yaourt -S anroid-studio`时报告缺sdk, 手动安装后又有权限问题, 故使用了图形界面的安装方式`pacman manager`
    
    ***安装studio时,遇到磁盘空间不足的问题, 如下搞定***
