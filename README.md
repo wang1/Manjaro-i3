@@ -215,6 +215,10 @@ B. 在/etc/privoxy/config文件最后添加一行(注意最后的.): forward-soc
 C. 在默认端口8118启动privoxy: systemctl start privoxy
 D. 在vscode中配置http代理即可
 ```
+29. 因需对pdf进行批注, 仓库安装FoxitReader报校验错, 因此去Foxit官网下载-->解压-->执行安装即可, 完毕后morc_menu菜单-->Office中即有FoxitReader
+
+30. X1C按了键盘的静音键后, 再次开启则没有声音了. 执行`pavocontrol`进行调整
+
 
 
 
