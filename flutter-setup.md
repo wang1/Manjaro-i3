@@ -24,3 +24,4 @@ export PUB_HOSTED_URL=https://pub.flutter-io.cn
 #### 6. 运行flutter的app需下载名为`gradle`的东东, 因为前面设置了代理导致下载不成功, 编辑`~/.gradle/gradle.properites`文件, 注释掉代理即可
 #### 7. 在VSCode的菜单中选择`debug 或 F5`进行调试运行
 #### 8. OK!
+#### 9. 如果遇到emulator不能启动, 请在AVD manager中action-->cool boot now, 如还是不能启动, `rm .android/avd/Nexus_5X_API_Q.avd/*.lock`即可
