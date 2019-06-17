@@ -219,9 +219,11 @@ D. 在vscode中配置http代理即可
 
 30. X1C按了键盘的静音键后, 再次开启则没有声音了. 执行`pavocontrol`进行调整
 
-31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://鲨鱼.net/). 安装v2ray后, `sudo cp /etc/v2ray/geo*.* /usr/bin/`, 然后配置`/etc/v2rayconfig.json文件的outbound的setting小节`, 主要添加如下:
+31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://鲨鱼.net/). 安装v2ray后, `sudo cp /etc/v2ray/geo*.* /usr/bin/`, 然后配置`/etc/v2rayconfig.json文件的outbound部分， 添加如下vmess小节`:
 ```
-"settings": {
+{
+  "protocol":"vmess",
+  "settings": {
         "vnext": [
           {
             "address": "8.8.8.8", // 服务器的 IP
@@ -237,6 +239,7 @@ D. 在vscode中配置http代理即可
           }
         ]
       }
+}
 ```
 
 
