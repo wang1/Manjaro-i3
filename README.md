@@ -223,7 +223,7 @@ D. 在vscode中配置http代理即可
 ```
 sudo pip install shadowray // 安装
 sudo vim /usr/lib/python3.7/site-packages/shadowray/subscribe/parse.py  //修改第50行, 将aid和level固定设置为2和0, 否则后面会出错 
-shadowray --autoconfig  //会自动下载v2ray核心文件, 并在新建~/.shadowray目录
+shadowray --autoconfig  //会自动下载v2ray核心文件, 并在新建~/.shadowray目录中放置其相关文件. 升级则github下载v2ray-core文件解压到该目录即可
 shadowray --subscribe-add 'haha,你的订阅url'  //添加订阅地址
 shadowray --subscribe-update --port 1080  //生成服务器配置文件(resource/servers.json), 并指定本地端口(默认为1082)
 shadowray --list  //查看当前服务器线路信息
