@@ -219,7 +219,18 @@ D. 在vscode中配置http代理即可
 
 30. X1C按了键盘的静音键后, 再次开启则没有声音了. 执行`pavocontrol`进行调整
 
-31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://鲨鱼.net/). 安装v2ray后, `sudo cp /etc/v2ray/geo*.* /usr/bin/`, 然后配置`/etc/v2rayconfig.json文件的outbound部分， 添加如下vmess小节`:
+31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://鲨鱼.net/). github上找到shadowray, 步骤如下:
+```
+sudo pip install shadowray //会自动下载v2ray核心文件
+sudo vim /usr/lib/python3.7/site-packages/shadowray/subscribe/parse.py  //修改第50行, 将aid和level固定设置为2和0, 否则后面会出错 
+shadowray --autoconfig
+shadowray --subscribe-add 'haha,你的订阅url'
+shadowray --subscribe-update --port 1080
+shadowray --list
+shadowray --start 1 --daemon
+shadowray --stop
+```
+安装v2ray后, `sudo cp /etc/v2ray/geo*.* /usr/bin/`, 然后配置`/etc/v2rayconfig.json文件的outbound部分， 添加如下vmess小节`:
 ```
 {
   "protocol":"vmess",
