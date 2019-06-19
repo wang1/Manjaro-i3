@@ -230,6 +230,11 @@ shadowray --list  //查看当前服务器线路信息
 shadowray --start 1 --daemon  //选择1号线路并后台运行
 shadowray --stop  //终止后台进程
 ```
+----
+> 每每解决了问题时, 才发现它在不起眼处!!!
+> X1C安装了v2ray或shadowray都不能使用, 花了两天时间, 各种考虑, 几乎放弃, 才发现是manjaro的时钟没有同步. 而v2ray要求客户机与服务器的时间不能相差90s, 这就是悲剧之源!
+> mod+ctrl+b 调出菜单, 安装timeset, 设置时间同步即可!
+------------
 以下为独立安装v2ray需要的手动配置, 使用shadowray后可不理会
 
 `sudo pacman -S v2ray`
