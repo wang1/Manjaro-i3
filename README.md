@@ -219,7 +219,8 @@ D. 在vscode中配置http代理即可
 
 30. X1C按了键盘的静音键后, 再次开启则没有声音了. 执行`pavocontrol`进行调整
 
-31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://鲨鱼.net/). github上找到名为shadowray for v2ray客户端的一个python包, 可实现订阅, 还不错. 步骤如下:
+31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://鲨鱼.net/). 
+  A. (请使用B方法)github上找到名为shadowray for v2ray客户端的一个python包, 可实现订阅, 还不错. 步骤如下:
 ```
 sudo pip install shadowray // 安装
 sudo vim /usr/lib/python3.7/site-packages/shadowray/subscribe/parse.py  //修改第50行, 将aid和level固定设置为2和0, 否则后面会出错 
@@ -231,6 +232,14 @@ shadowray --start 1 --daemon  //选择1号线路并后台运行
 shadowray --stop  //终止后台进程
 ```
 ----
+ B. github上找到一个可订阅并测速以及自动生成配置文件, 自动启动服务并方便切换的脚本, 果断用上:
+ ```
+ sudo pacman -S v2ray //安装v2ray, 并自动以服务方式后台启动, 注意如果没有启动成功, 留意v2ray的路径, 一般在/usr/bin下, 否则修改v2ray.service文件
+ git clone https://github.com/akirarika/v2sub.git
+ sudo cp v2sub/v2sub /usr/bin/    //拷贝到系统路径目录中
+ sudo v2sub   //输入一次订阅地址即可, 然后选择线路, 
+ ```
+ 
 > 每每解决了问题时, 才发现它在不起眼处!!!
 > X1C安装了v2ray或shadowray都不能使用, 花了两天时间, 各种考虑, 几乎放弃, 才发现是manjaro的时钟没有同步. 而v2ray要求客户机与服务器的时间不能相差90s, 这就是悲剧之源!
 > mod+ctrl+b 调出菜单, 安装timeset, 设置时间同步即可!
