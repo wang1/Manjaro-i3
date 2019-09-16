@@ -182,6 +182,7 @@ done)
 sudo pacman-key --init
 sudo pacman-key --populate archlinux manjaro
 sudo pacman-key --refresh-keys
+sudo rm /var/chache/pacman/pkg/*
 sudo pacman -Syu
 
 ```
