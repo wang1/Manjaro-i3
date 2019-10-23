@@ -279,15 +279,15 @@ shadowray --stop  //终止后台进程
 
 * JD上买个蓝牙适配器, 按照`arch bluetooth wiki`的介绍开始在PC上安装`bluez bluez-utils blueman`等, 总之命令行也罢, GUI也罢, 就是连接不成功, 期间重新启动还卡在`A stoped job is running, wait...`位置, 导致还不能正常重启!
 
-使用的命令如下:
-```
-bluetoothctl  # 进入蓝牙配置
-power on      # 打开适配器
-scan on       # 进入扫描模式, 可扫描到新的蓝牙设备, 拷贝其mac
-trust mac
-pair mac
-connect mac
-```
+  使用的命令如下:
+  ```
+  bluetoothctl  # 进入蓝牙配置
+  power on      # 打开适配器
+  scan on       # 进入扫描模式, 可扫描到新的蓝牙设备, 拷贝其mac
+  trust mac
+  pair mac
+  connect mac
+  ```
 > 放弃, MS的鼠标不给Linux使用? :), 该蓝牙鼠标送与XXX, 在其WIN10上瞬间工作, :(
 
 * 事情本来就此了. 某天清理机器, 觉得有关蓝牙的程序不需要了, 故搜索`bluetooth`, 将与之相关的删除. 期间`Manjaro`给了以下警告, 无非是可能有些程序需要(wireshark之类), 直接无视.
@@ -298,7 +298,28 @@ connect mac
 
 * 拔出网卡, 插到X1C, 正常工作, 那就开始进行手动配置吧. **此时此处没有X1C是不可想象的! 我需要参考资料!**
 
-* 
+* 以下的命令多费周章:
+  ```
+  ip addr 或 iw dev     # 查看网络设备接口名称, 以下称为wlp0s
+  ip link show wlp0s    # 查看其状态是否up
+  sudo ip link set wlp0s up  # up该接口
+  iw wlp0s link         # 是否有连接
+  sudo iw wlp0s scan    # 扫描AP, 找出要连接的SSID, 以下称为hahaha(WPA2加密)
+  su                    # 切换为root
+  wpa_passphrase hahaha >> /etc/wpa_supplicant/wpa.conf # 生成wpa连接配置文件, 该命令需输入wifi口令
+  su XXXX   # 切换回一般用户
+  sudo wpa_supplicant -i wlp0s -c /etc/wpa_supplicant/wpa.conf  # 连接指定AP
+  iw wlp0s link         # 应看到连接成功
+  sudo dhclient wlp0s   # 获取网络配置
+  ```
+  > sudo ip addr add 192.168.1.2/24 dev wls0s         # 指定IP
+  > ip route add default via 192.168.1.1 dev wls0s    # 添加网关
+  > /etc/resolv.conf为DNS配置
+
+* 现在可以联网, 马上安装`networkmanager, nm-connection-editor, network-manager-applet`, 重启
+
+**恢复如初**
+
 
 ----
 ### Refrences:
