@@ -54,7 +54,7 @@ Then edit `/etc/systemd/logind.conf` and make sure you have an uncommented line 
 
 Now when you close the lid, the machine will sleep. When you open it, you'll just have to press the button to get it to come back. This might be annoying for some users, but that's how I'm used to waking up my machine.
 
-10. 设置网络流量显示。新建如下内容文件`～/.i3/net-speed.sh`:
+10. 设置网络流量显示。新建如下内容文件`～/.i3/net-speed.sh`, 添加可执行权限`chmod +x ~/.i3/net-speed.sh`:
 ```
 #!/bin/sh
 
@@ -71,7 +71,7 @@ Now when you close the lid, the machine will sleep. When you open it, you'll jus
 #
 # i3 config looks like this:
 # bar {
-#   status_command sh ～/.i3/net-speed.sh
+#   status_command exec ～/.i3/net-speed.sh
 # }
 #
 # Single interface:
