@@ -226,7 +226,7 @@ D. 在vscode中配置http代理即可
 
 30. X1C按了键盘的静音键后, 再次开启则没有声音了. 执行`pavocontrol`进行调整
 
-31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://鲨鱼.net/). 
+31. 在看了v2ray的介绍后, 入手了一个v2ray机场(https://mk.nyuyu.net/aff.php?aff=742). 
   A. (请使用B方法)github上找到名为shadowray for v2ray客户端的一个python包, 可实现订阅, 还不错. 步骤如下:
 ```
 sudo pip install shadowray // 安装
@@ -246,6 +246,17 @@ shadowray --stop  //终止后台进程
  sudo cp v2sub/v2sub /usr/bin/    //拷贝到系统路径目录中
  sudo v2sub   //输入一次订阅地址即可, 然后选择线路, 
  ```
+ 
+ 因机场传输协议升级为WebSocket, 故修改`v2sub`源代码, 与`outbound->settings`平级输入:
+ ```
+ "streamSettings": {
+   "network": "ws",
+   "wsSettings": {
+     "connectionReuse": True
+   }
+ }
+ ```
+ 
  
 > 每每解决了问题时, 才发现它在不起眼处!!!
 > X1C安装了v2ray或shadowray都不能使用, 花了两天时间, 各种考虑, 几乎放弃, 才发现是manjaro的时钟没有同步. 而v2ray要求客户机与服务器的时间不能相差90s, 这就是悲剧之源!
