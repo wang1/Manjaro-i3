@@ -201,6 +201,12 @@ sudo pacman -Syu
 ``` 
 26. 截屏：
 ```
+Screenshot of whole screen - <Print>
+Screenshot of focused container - mod+<Print>
+Screenshot of selection - mod+<Shift>+<Print>
+```
+
+```
 import i3.jpg //然后就让你选截屏的区域
 sleep 5;import 213.png    //等待5秒截屏
 import -frame    123.jpg     //截取鼠标点击的那个窗口
