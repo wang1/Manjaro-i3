@@ -257,6 +257,8 @@ shadowray --stop  //终止后台进程
  }
  ```
  
+ > 20191122, 脚本地址更新为`git clone https://github.com/xbblog95/v2sub.git`，是上一个脚本的更新，自动支持ws， 且支持测速即`sudo v2sub speed`
+ 
  
 > 每每解决了问题时, 才发现它在不起眼处!!!
 > X1C安装了v2ray或shadowray都不能使用, 花了两天时间, 各种考虑, 几乎放弃, 才发现是manjaro的时钟没有同步. 而v2ray要求客户机与服务器的时间不能相差90s, 这就是悲剧之源!
