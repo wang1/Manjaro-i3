@@ -339,6 +339,12 @@ shadowray --stop  //终止后台进程
 
 **恢复如初**
 
+33. 下载`kali`虚拟机时， chrome下载总是半途中断。安装了另外一个多线程下载工具`Axel`， 10分钟搞定。
+
+```base
+yay -S axel
+axel YOUR-URL -n 10 # 以10个线程下载文件在当前目录
+```
 
 ----
 ### Refrences:
