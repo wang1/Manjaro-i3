@@ -179,16 +179,20 @@ done)
 
 23. 在一次较久未升级后进行系统升级,中间在编译某软件(似乎是mongodb)太久了, 我终止了升级过程, 随后无论如何都不能更新, 出现`invalid crypto engine`等错误, 然后查询发现可以如下进行修正:
 ```
+sudo rm -fr /etc/pacman.d/gnupg # 如果以下命令失败则先执行此命令
 sudo pacman-key --init
 sudo pacman-key --populate archlinux manjaro
 sudo pacman-key --refresh-keys
-sudo rm /var/chache/pacman/pkg/*
+sudo rm /var/cache/pacman/pkg/*
 sudo pacman -Syu
 
 ```
 
 但以上命令需要libreadline.so.7文件, 执行以下操作即可: `sudo ln -s /usr/lib/libreadline.so.8 /usr/lib/libreadline.so.7`
-
+另, 更新镜像排名, 选择国内比较快的官方镜像源, 勾选相应的镜像站 :
+```
+sudo pacman-mirrors -i -c China -m rank   #
+```
 24. GoLang开发配置. GUI安装go即可, 然后打开vscode, 安装go插件；新建一个hello.go文件, 将弹出安装相关工具对话框, 但由于有墙且VScode不支持sock5代理, 故安装不能成功. 进入`~/go`目录, 新建`golang.org/x`目录, 执行`git clone https://github.com/golang/tools.git`和`git clone https://github.com/golang/lint.git`命令, 然后在vscode中调出命令面板, 输入`Go: Install/Update Tools`安装即可
 
 25. Cisco Packet Tracer安装：
