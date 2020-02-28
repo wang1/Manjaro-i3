@@ -346,10 +346,27 @@ shadowray --stop  //终止后台进程
 
 33. 下载`kali`虚拟机时， chrome下载总是半途中断。安装了另外一个多线程下载工具`Axel`， 10分钟搞定。
 
-```base
+```bash
 yay -S axel
 axel YOUR-URL -n 10 # 以10个线程下载文件在当前目录
 ```
+34. 在Nova的提醒下，将vscode与github用SSH通过密钥关联起来。
+```bash
+# 生成SSH密钥
+sshgen    # 默认在～/.ssh下生成密钥对（id_ras,id_ras.pub)，可以无需密码保护
+#SSH连接测试：为了保险起见，我们应当测试一下是否能够通过SSH访问Github
+ssh -T git@github.com # 看到如下信息即可：You've successfully authenticated, but GitHub does not provide shell access.
+# 添加SSH Key到Github：登入github，修改帐号的setting中的ssk key，添加id_ras.pub公钥的内容即可
+# 进入某仓库，获取ssh地址如：git@github.com:wang1/course.git
+# 完善git配置信息
+git config --global user.name "wang1"           #引号内替换成自己Github注册用户名
+git config --global user.email "wang1@gmail.com"
+# 关联本地和远程仓库
+git remote add origin git@github.com:wang1/course.git
+# 如果本地仓库已关联，可修改
+git serurl origin git@github.com:wang1/course.git
+```
+至此，在vscode中同步仓库就无需每次输入用户和密码了
 
 ----
 ### Refrences:
