@@ -364,7 +364,9 @@ git config --global user.email "wang1@gmail.com"
 # 关联本地和远程仓库
 git remote add origin git@github.com:wang1/course.git
 # 如果本地仓库已关联，可修改
-git serurl origin git@github.com:wang1/course.git
+git remote set-url origin git@github.com:wang1/course.git
+# 查看远程关联情况
+git remote -v
 ```
 至此，在vscode中同步仓库就无需每次输入用户和密码了
 
