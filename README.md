@@ -370,6 +370,19 @@ git remote -v
 ```
 至此，在vscode中同步仓库就无需每次输入用户和密码了
 
+35. 系统已内置了`webp`图片转换工具，生成以下脚本自动某目录下的`.jpg`和`.png`进行转换，文件名不变
+
+```bash
+# input/output in the same directory
+for file in ./*
+do
+  if [ -f "$file" ] # only for file
+  then
+    cwebp "$file" -o "${file%.*}.webp" # default quality is 75
+  fi
+done
+```
+
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
