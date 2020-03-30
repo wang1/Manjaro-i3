@@ -353,10 +353,10 @@ axel YOUR-URL -n 10 # 以10个线程下载文件在当前目录
 34. 在Nova的提醒下，将vscode与github用SSH通过密钥关联起来。
 ```bash
 # 生成SSH密钥
-sshgen    # 默认在～/.ssh下生成密钥对（id_ras,id_ras.pub)，可以无需密码保护
+ssh-keygen    # 默认在～/.ssh下生成密钥对（id_ras,id_ras.pub)，可以无需密码保护
+# 添加SSH Key到Github：登入github，修改帐号的setting中的ssk key，添加id_ras.pub公钥的内容即可
 #SSH连接测试：为了保险起见，我们应当测试一下是否能够通过SSH访问Github
 ssh -T git@github.com # 看到如下信息即可：You've successfully authenticated, but GitHub does not provide shell access.
-# 添加SSH Key到Github：登入github，修改帐号的setting中的ssk key，添加id_ras.pub公钥的内容即可
 # 进入某仓库，获取ssh地址如：git@github.com:wang1/course.git
 # 完善git配置信息
 git config --global user.name "wang1"           #引号内替换成自己Github注册用户名
