@@ -384,7 +384,7 @@ do
 done
 ```
 
-36. Synergy，一套键鼠控制两台主机的开源软件[计算序列号](http://cpp.sh/3mjw3)
+36. ~~Synergy，一套键鼠控制两台主机的开源软件[计算序列号](http://cpp.sh/3mjw3)~~
 
 疫情期间进了个带鱼屏，连接到在办公室用的一台老PC后分辨率上不去（买了各种转换头）。
 怎么办？换主机？
@@ -413,6 +413,23 @@ exec --no-strartup-id sysnergys -c ~/.synergy/lib.conf  # 写到 ~/.i3/config中
 
 感觉不错！
 
+37. Barrier 基于Synergy的开源免费软件，[下载地址](https://github.com/debauchee/barrier)
+使用Synergy的过程中，第一次连接客户机即Win10始终不能控制，需得再次运行Synergy一次。终于另外搜到一个更简单的Barrier！
+- 服务器安装配置
+```bash
+yay barrier   # 安装
+barrier       # 运行，选择服务器端，图形方式选择屏幕排列位置以及客户端名称如Win10（需要与客户机一致），注意在setting中去掉SSL加密！！！（选择了SSL加密通信后发生抖动）
+exec --no-strartup-id barrier  # 写到 ~/.i3/config中自启动
+```
+- 客户机安装及配置：
+下载Windows版的 [Barrier](https://github.com/debauchee/barrier/releases)，安装即可
+运行Barrier，选择客户机，过程中建议安装Bonjour，设置服务器IP和客户端名称（需与服务器端一致），去掉auto config，注意在setting中去掉SSL加密！！！点击开始，测试是否OK
+如果OK了，其它无需做什么，Barrier自动以守护进程运行
+
+彻底摆脱了！
+
+38. OpenVPN 两个客户端
+直接将两个证书文件夹复制到OpenVPN的`config`目录即可
 
 
 ----
