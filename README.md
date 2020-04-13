@@ -431,6 +431,20 @@ exec --no-strartup-id barrier  # 写到 ~/.i3/config中自启动
 38. OpenVPN 两个客户端
 直接将两个证书文件夹复制到OpenVPN的`config`目录即可
 
+39. VS Code远程开发
+目前使用X1C进行开发全栈开发，无论前端和后台都是热更新，那么笔记本的CPU有些吃紧，风扇经常狂转，很是心疼。
+刚好得到一个VPS(16核，32G），也听说Code推出了remote方式，看了文档，非常好，正是我要的，编译/运行等都由VPS进行强大的支持，笔记本这边就是个IO设备了。下面是配置过程：
+
+```bash
+服务器配置好openssh server
+客户机vscode中安装remote-ssh插件
+完毕后左侧将有remote图标，点击添加remote host即可
+客户机如果没生成密钥对则ssh-keygen生成即可（参加34条）
+然后复制公钥到remote host。ssh-copy-id -i ～/.ssh/id_rsa.pub someone-on-remote-host@remote-host
+ssh测试一下
+服务器那边安装开发环境即可
+```
+再也不担心笔记本吃不消了，关键速度很快！
 
 ----
 ### Refrences:
