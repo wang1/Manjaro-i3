@@ -451,6 +451,22 @@ ssh测试一下
 mod+z调出菜单，setting->manjaro setting，选择内核安装即可，完毕后卸载当前运行的内核，重启。
 好像有新的感觉，哈哈哈。
 
+41. 在大数据中心制作Manjaro镜像
+管理机不能外网，本地先制作，然后上传到管理机
+```bash
+yay docker
+sudo systemctl start docker
+sudo docker pull manjarolinux/build-unstable:latest
+docker images # display image
+sudo docker save -o manjaro.tar manjarolinux/build-unstable
+sudo scp manjaro.tar root@x.x.x.x:/XXX/YYY
+```
+登录管理机，从文件导入image
+```bash
+docker load < manjaro.tar
+docker tag 899bd984 manjaro:1902
+```
+
 ----
 ### Refrences:
 > 1. http://www.php-master.com/post/258672.html
