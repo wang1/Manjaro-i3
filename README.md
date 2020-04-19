@@ -466,6 +466,21 @@ sudo scp manjaro.tar root@x.x.x.x:/XXX/YYY
 docker load < manjaro.tar
 docker tag 899bd984 manjaro:1902
 ```
+42. 使用Google Code Lab进行教程撰写
+安装
+```bash
+wget https://github.com/googlecodelabs/tools/releases/download/v2.2.0/claat-linux-amd64
+sudo mv claat-linux-amd64 /usr/bin/claat
+sudo chmod +x /usr/bin/claat
+```
+使用，按Google Code Lab预制的样式（[格式参考](https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816）将`md`转换为`html`，然后运作一个内置的`Web`服务器供查看
+```bash
+claat export test.md
+claat serve -addr 0.0.0.0：9090  # 默认localhost：9090
+```
+
+
+
 
 ----
 ### Refrences:
