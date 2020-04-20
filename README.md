@@ -454,17 +454,25 @@ mod+z调出菜单，setting->manjaro setting，选择内核安装即可，完毕
 41. 在大数据中心制作Manjaro镜像
 管理机不能外网，本地先制作，然后上传到管理机
 ```bash
-yay docker
-sudo systemctl start docker
-sudo docker pull manjarolinux/build-unstable:latest
-docker images # display image
-sudo docker save -o manjaro.tar manjarolinux/build-unstable
-sudo scp manjaro.tar root@x.x.x.x:/XXX/YYY
+yay docker  # 安装docker
+sudo systemctl start docker # 启动docker
+sudo docker pull manjarolinux/build-unstable:latest # 拉回image
+sudo docker images # display image
+sudo docker run -t -i manjaro/build--unstable /bin/bash # 运行镜像的shell
+... # 在shell中各种更新和安装相关软件，如
+sudo pacman-mirrors -i -c China -m rank等，注意提示符中的id，如：c92ff0b9a966，那是容器id，我们提交时需要
+exit  # 退出shell
+sudo docker commit -m="add ssh" -a="wangyong" c92ff0b9a966 manjaro:1902 # 提交刚才那个容器镜像的副本
+sudo docker images  # 再次查看，现在就有新的image了
+sudo docker save -o manjaro.tar manjaro # 将image保存为tar文件
+sudo scp manjaro.tar root@x.x.x.x:/XXX/YYY  # 上传到大数据中心管理机
 ```
 登录管理机，从文件导入image
 ```bash
 docker load < manjaro.tar
-docker tag 899bd984 manjaro:1902
+docker images # 查看image
+docker tag 899bd984 manjaro:1902  # 修改image的tag等
+# 修改数据库
 ```
 42. 使用Google Code Lab进行教程撰写
 安装
