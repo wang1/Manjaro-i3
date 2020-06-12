@@ -482,11 +482,32 @@ wget https://github.com/googlecodelabs/tools/releases/download/v2.2.0/claat-linu
 sudo mv claat-linux-amd64 /usr/bin/claat
 sudo chmod +x /usr/bin/claat
 ```
-使用，按Google Code Lab预制的样式（[格式参考](https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816）将`md`转换为`html`，然后运作一个内置的`Web`服务器供查看
+使用-MD格式
+按Google Code Lab预制的样式（[格式参考](https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816）将`md`转换为`html`，然后运作一个内置的`Web`服务器供查看
 ```bash
 claat export test.md
 claat serve -addr 0.0.0.0：9090  # 默认localhost：9090
 ```
+使用-GoogleDoc格式
+也可直接在 doc.google.com 上按规定格式进行撰写，然后使用以下命令即可（注意：因为要读取google文档，需科学上网）
+```bash
+claat export googledocID
+# 第一次需得到授权，会给出的 url，复制该 url，访问后得到 code，粘贴即可。以后不会再出现
+```
+
+43. 内网穿透的免费工具--Zerotier
+该工具可以免费的将各个计算机在 Internet 中组建为一个 LAN，也就实现了内网穿透。
+先在 https://my.zerotier.com/ 上以google帐号登录，然后生成 NetworkID，复制
+然后在 Manjaro 上：
+```bash
+sudo yay zerotier-one # 安装
+sudo systemctl enable zerotier-one
+sudo systemctl start zerotier-one
+sudo zerotier-cli join networkID  # 加入
+ip a # 可查看到新的IP地址
+```
+最后在https://my.zerotier.com/上将该加入的计算机授权即可（Auth处打勾)
+其它机器如法炮制。
 
 
 
