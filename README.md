@@ -507,7 +507,22 @@ sudo zerotier-cli join networkID  # 加入
 ip a # 可查看到新的IP地址
 ```
 最后在https://my.zerotier.com/上将该加入的计算机授权即可（Auth处打勾)
-其它机器如法炮制。
+其它机器如法炮制，Windows直接下载客户端安装加入即可，可选开机启动。
+因使用公用国外中转PLANET服务器，所以搭建自己的MOON服务器，申请了TC的免费服务器，选Ubuntu系统，配置如下：
+```
+curl -s https://install.zerotier.com/ | sudo bash   # 安装
+sudo zerotier-cli join <network id> # 加入并在控制台授权
+sudo zerotier-idtool initmoon /var/lib/zerotier-one/identity.public >> moon.json  # 通过 identity.public 生成一个 moon.json 文件
+编辑刚生成的 moon.json 文件，在"stableEndpoints"写入 TC 服务器的IP : [ "TC的IP/9993"]，默认端口9993
+sudo zerotier-idtool genmoon moon.json  # 生成签名文件 000000xxxxxxxxxx.moon，其中的xxxxxxxxxx实际就是该节点的id
+sudo mkdir /var/lib/zerotier-one/moons.d
+sudo cp 000000xxxxxxxxxx.moon /var/lib/zerotier-one/moons.d
+重启电脑。至此，VPS 上（moon 服务器）配置完成。
+```
+然后在需要使用该中转节点的客户机上运行：`sudo zerotier-cli orbit xxxxxxxxxx xxxxxxxxxx`（注意Windows下需使用管理员PowerShell）;
+重启`zerotier`服务或计算机，使用`sudo zerotier-cli listpeers`查看，出现带**ip地址**的`MOON`节点表示成功。
+如此速度可接受。
+
 
 44. 一台电脑同时连接内网和外网问题
 
