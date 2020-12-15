@@ -520,7 +520,7 @@ sudo cp 000000xxxxxxxxxx.moon /var/lib/zerotier-one/moons.d
 重启电脑。至此，VPS 上（moon 服务器）配置完成。
 ```
 然后在需要使用该中转节点的客户机上运行：`sudo zerotier-cli orbit xxxxxxxxxx xxxxxxxxxx`（注意Windows下需使用管理员PowerShell）;
-重启`zerotier`服务或计算机，使用`sudo zerotier-cli listpeers`查看，出现带**ip地址**的`MOON`节点表示成功。
+重启`zerotier`服务或计算机，使用`sudo zerotier-cli listpeers`查看，出现带**ip地址**的`MOON`节点表示成功(需要一定延时`MOON`才可用，可`ping`之加快出现的速度)。
 如此速度可接受。
 
 
