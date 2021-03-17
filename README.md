@@ -265,7 +265,7 @@ shadowray --stop  //终止后台进程
  
  > 20191122, 脚本地址更新为`git clone https://github.com/xbblog95/v2sub.git`，是上一个脚本的更新，自动支持ws， 且支持测速即`sudo v2sub speed`。但请注意因其有其它需要的文件，故需要在其目录中运行或创建链接`sudo ln -s ~/v2sub/v2sub /usr/bin/v2sub`
  > 20210312, 使用了一个(基于Web的v2ray)[https://github.com/v2rayA/v2rayA]的客户端，支持`socks5/http`等，`yay v2ray`安装，localhost:2017打开即可
- 
+ > `vultr服务器`https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAv2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B
  
 > 每每解决了问题时, 才发现它在不起眼处!!!
 > X1C安装了v2ray或shadowray都不能使用, 花了两天时间, 各种考虑, 几乎放弃, 才发现是manjaro的时钟没有同步. 而v2ray要求客户机与服务器的时间不能相差90s, 这就是悲剧之源!
