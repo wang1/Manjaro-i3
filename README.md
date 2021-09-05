@@ -488,7 +488,7 @@ sudo chmod +x /usr/bin/claat
 ```
 使用MD格式
 
-按Google Code Lab预制的样式（ [格式参考](https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816））。
+按Google Code Lab预制的样式（ [格式参考](https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816)）。
 
 将`md`转换为`html`，然后运作一个内置的`Web`服务器供查看
 
