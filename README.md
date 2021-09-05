@@ -485,8 +485,10 @@ wget https://github.com/googlecodelabs/tools/releases/download/v2.2.0/claat-linu
 sudo mv claat-linux-amd64 /usr/bin/claat
 sudo chmod +x /usr/bin/claat
 ```
-使用-MD格式
-按Google Code Lab预制的样式（[格式参考](https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816）将`md`转换为`html`，然后运作一个内置的`Web`服务器供查看
+使用MD格式
+按Google Code Lab预制的样式（[格式参考](https://medium.com/@mariopce/tutorial-how-to-make-tutorials-using-google-code-labs-gangdam-style-d62b35476816）。
+
+将`md`转换为`html`，然后运作一个内置的`Web`服务器供查看
 ```bash
 claat export test.md
 claat serve -addr 0.0.0.0：9090  # 默认localhost：9090
