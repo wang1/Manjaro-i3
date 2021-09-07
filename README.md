@@ -542,6 +542,24 @@ route add 0.0.0.0 mask 0.0.0.0 10.1.1.1   # 默认，假设10.1.1.1是外网网�
 route add 192.168.5.0 mask 255.255.255.0 10.2.2.2   # 假设10.2.2.2是内网网关
 ```
 
+45. 安装ROS2-galactic在Manjaro
+因ROS只提供了Ubuntu的安装包，因此需要从源码进行编译安装。安装过程需要科学上网，所以将v2raya调整为透明代理即系统全局代理
+
+```
+1. yay ros2-galactic
+2. 编译安装过程中出现 yaml_cpp_vendor 包的"CMake Error: Unknown argument -std=c++14 -w"编译错误，经过大量查询，发现需要更新源文件。待其下载完毕安装前，打开
+/home/qige/.cache/yay/ros2-galactic/ros2/src/.../yaml_cpp_vendor/CMakeLists.txt文件，替换
+<     list(APPEND YAML_C_FLAGS "-w")
+<     list(APPEND YAML_CXX_FLAGS "-std=c++14 -w")
+---
+>     set(YAML_C_FLAGS "${YAML_C_FLAGS} -w")
+>     set(YAML_CXX_FLAGS "${YAML_CXX_FLAGS} -std=c++14 -w")
+3. 注意编译安装过程中需保持科学上网，X1C上用了90m！
+4. 安装完毕，设置运行环境变量（打开terminal时略有延迟，以后不用时可删除）
+echo "source /opt/ros2/galactic/setup.bash" >> ~/.bashrc
+echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
+```
+> 参见 [官网配置](https://docs.ros.org/en/galactic/Tutorials/Configuring-ROS2-Environment.html)
 
 
 ----
