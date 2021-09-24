@@ -572,6 +572,7 @@ echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
 > 然后客户机用ssh -X 登录即可
 > ```
 
+https://wiki.archlinux.org/title/GNOME/Keyring
 
 ----
 ### Refrences:
