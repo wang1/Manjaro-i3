@@ -516,9 +516,10 @@ sudo yay zerotier-one # 安装
 sudo systemctl enable zerotier-one
 sudo systemctl start zerotier-one
 sudo zerotier-cli join networkID  # 加入
+# 最后在https://my.zerotier.com/上将该加入的计算机授权即可（Auth处打勾)
 ip a # 可查看到新的IP地址
 ```
-最后在https://my.zerotier.com/上将该加入的计算机授权即可（Auth处打勾)
+
 其它机器如法炮制，Windows直接下载客户端安装加入即可，可选开机启动。
 因使用公用国外中转PLANET服务器，所以搭建自己的MOON服务器，申请了TC的免费服务器，选Ubuntu系统，配置如下：
 ```
@@ -570,6 +571,7 @@ echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
 > X11Forwarding yes
 > X11UseLocalhost no
 > 然后客户机用ssh -X 登录即可
+> 但是如果某些GUI需要root运行如`wireshark`，则会出现授权问题，参见[IBM](https://www.ibm.com/support/pages/x11-forwarding-ssh-connection-rejected-because-wrong-authentication)
 > ```
 
 https://wiki.archlinux.org/title/GNOME/Keyring
