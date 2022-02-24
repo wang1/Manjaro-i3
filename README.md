@@ -574,6 +574,14 @@ echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
 > 但是如果某些GUI需要root运行如`wireshark`，则会出现授权问题，参见[IBM](https://www.ibm.com/support/pages/x11-forwarding-ssh-connection-rejected-because-wrong-authentication)
 > ```
 
+46. 大数据中心被学校网络中心扫描到ssh弱口令登录，也不知该机器位于何处（否则可直接拨网线或关机，后来他们发现是曙光的一台刀片服务器管理机，也不知做什么用的）。普通用户登录后发现是一个AMI之类的linux，可用的命令极少，也没有sudo，`passwd ifshutdown`等也没有，文件系统也是只读的，也即几乎不能做任何操作。然后想到只能以root用户进入，幸好，`cat /etc/passwd` 以及`cat /etc/shadow`无需口令，找到根用户是sysadmin，将这两个文件复制下来，在Kali上进行破解
+  ```
+     `unshadow passwd shadow p.txt`   # 生成待破解的有salt的密码文件，查资料发现是MD5的hash
+     `sudo hashcat -m 500 -a 0 -o ok.txt p.txt /rockyou.txt --force` # rockyou.txt是Kali自带的字典，然后居然找到口令了！！！
+     编辑sshd-config，加入`DenyUsers admin` 重启机器。搞定。
+  ```
+  
+  
 https://wiki.archlinux.org/title/GNOME/Keyring
 
 ----
