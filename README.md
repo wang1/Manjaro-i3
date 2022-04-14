@@ -580,7 +580,8 @@ echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
      `sudo hashcat -m 500 -a 0 -o ok.txt p.txt /rockyou.txt --force` # rockyou.txt是Kali自带的字典，然后居然找到口令了！！！
      编辑sshd-config，加入`DenyUsers admin` 重启机器。搞定。
   ```
-  
+
+47. 一直寻找i3上能屏幕缩放的工具用于课堂，终于有了一个[i3Mag](https://github.com/nkreer/i3mag)。安装后注意因配置的minus键有冲突，需更改一下原有的。成功后可`mod+ mod-`进行缩放，基本OK
   
 https://wiki.archlinux.org/title/GNOME/Keyring
 
