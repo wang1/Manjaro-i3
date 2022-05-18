@@ -270,6 +270,7 @@ shadowray --stop  //终止后台进程
  > `systemctl enable v2raya`后`localhost:2017`浏览即可(后来发现任没能自动启动，查看日志`journalctl -u v2raya`看到原因是系统时间不对，NTP对时即可)
 > 20210801，使用`proxychains`全局代理`yay`时总是网络不可连接等问题，然后发现`v2raya`设置中居然有一个透明代理，即可全局代理Linux的流量，`proxychains`可以退出了！
  > `vultr服务器`https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAv2ray%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B
+ > 20220516，开始使用`clash`，该软件能自动选择最快的节点，且也能全局代理。直接`yay clash`，选择chinese版本安装配置即可。
  
 > 每每解决了问题时, 才发现它在不起眼处!!!
 > X1C安装了v2ray或shadowray都不能使用, 花了两天时间, 各种考虑, 几乎放弃, 才发现是manjaro的时钟没有同步. 而v2ray要求客户机与服务器的时间不能相差90s, 这就是悲剧之源!
