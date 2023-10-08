@@ -434,6 +434,17 @@ exec --no-strartup-id barrier  # 写到 ~/.i3/config中自启动
 如果OK了，其它无需做什么，Barrier自动以守护进程运行
 
 彻底摆脱了！
+------------------
+20231008: 将Windows作为Server，让Manjaro为Client，但Manjaro登录前没运行Barrier（设置为Service没成功）就不能使用键盘，所以设置了自动登录。修正文件`/etc/lightdm/lightdm.conf`的`[seat:*]`小结 
+```
+autologin-guest=false
+autologin-user=magiclen
+autologin-user-timeout=0
+```
+然后更改`.i3/config`文件启动barrier的客户端即可
+```
+exec --no-strartup-id barrierc --disable-crypto 192.168.10.64
+```
 
 38. OpenVPN 两个客户端
 直接将两个证书文件夹复制到OpenVPN的`config`目录即可
