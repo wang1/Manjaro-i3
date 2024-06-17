@@ -594,18 +594,5 @@ echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
   ```
 
 47. 一直寻找i3上能屏幕缩放的工具用于课堂，终于有了一个[i3Mag](https://github.com/nkreer/i3mag)。安装后注意因配置的minus键有冲突，需更改一下原有的。成功后可`mod+ mod-`进行缩放，基本OK
-  
-https://wiki.archlinux.org/title/GNOME/Keyring
-
-----
-### Refrences:
-> 1. http://www.php-master.com/post/258672.html
-> 1. http://www.cnblogs.com/vachester/p/5649813.html
-> 1. https://dev.to/lobo_tuerto/you-need-to-know-about-i3-363c  (fonts configure)
-> 1. https://ohmyarch.github.io/2017/01/15/Linux下终极字体配置方案 
-> 1. https://fontawesome.com/cheatsheet (开源图标字体，直接复制粘贴使用)
-> 1. https://www.jianshu.com/p/cf14660d8af2 (#Manjaro-i3的配置)
-> 1. https://www.jianshu.com/p/6e9eb98c0494 (Manjaro linux 安装笔记)
-> 1. http://jimolonely.github.io/2017/12/27/linux/001-linux-manjaro/ (配置manjaro)
-
-----
+48. 安装了一个文件服务器`yay filebrowser`，配置有点麻烦，主要是权限问题，目前运行在 9999 端口，目录在`/var/lib/filebrowser/data`
+    
