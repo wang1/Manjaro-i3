@@ -595,5 +595,5 @@ echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
 
 47. 一直寻找i3上能屏幕缩放的工具用于课堂，终于有了一个[i3Mag](https://github.com/nkreer/i3mag)。安装后注意因配置的minus键有冲突，需更改一下原有的。成功后可`mod+ mod-`进行缩放，基本OK
 48. 安装了一个文件服务器`yay filebrowser`，配置有点麻烦，主要是权限问题，目前运行在 9999 端口，目录在`/var/lib/filebrowser/data`
-49. vscode进行远程开发，一直出现`Remote host Extension Terminated`错误，然后必须reload window，但一会又出现了，查了许多资料，基本都给出的是扩展有冲突，依次禁用再启用来排除，或者其它情况。排查许久，许久，许久...，然后找到是内建扩展与`git`相关的有问题，通过`@builtin git`disable后一切正常！但原因不明！
+49. vscode进行远程开发，一直出现`Remote host Extension Terminated`错误，然后必须reload window，但一会又出现了，查了许多资料，基本都给出的是扩展有冲突，依次禁用再启用来排除，或者其它情况。排查许久，许久，许久...，然后找到是内建扩展`git`的问题，通过`@builtin git`disable后一切正常！但原因不明！后来发现`path intellisense`也导致问题！
     
