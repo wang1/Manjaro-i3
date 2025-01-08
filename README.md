@@ -595,8 +595,15 @@ echo "export ROS_DOMAIN_ID=42" >> ~/.bashrc
 
 47. 一直寻找i3上能屏幕缩放的工具用于课堂，终于有了一个[i3Mag](https://github.com/nkreer/i3mag)。安装后注意因配置的minus键有冲突，需更改一下原有的。成功后可`mod+ mod-`进行缩放，基本OK
 48. 安装了一个文件服务器`yay filebrowser`，配置有点麻烦，主要是权限问题，目前运行在 9999 端口，目录在`/var/lib/filebrowser/data`
-49. vscode进行远程开发，一直出现`Remote host Extension Terminated`错误，然后必须reload window，但一会又出现了，查了许多资料，基本都给出的是扩展有冲突，依次禁用再启用来排除，或者其它情况。排查许久，许久，许久...，然后找到是内建扩展`git`的问题，通过`@builtin git`disable后一切正常！(或者这些扩展enable也可以，但必须在setting中设置 git.enabled)但原因不明！后来发现`path intellisense`也导致问题！
-50. 使用的雾凇拼音，默认配置文件在`.local/share/fcitx5/rime/default.custom.yaml`和`.local/share/fcitx5/rime/rime_ice.custom.yaml`中，修改两个文件内容为：
+49. vscode进行远程开发，一直出现`Remote host Extension Terminated`错误，然后必须reload window，但一会又出现了，查了许多资料，基本都给出的是扩展有冲突，依次禁用再启用来排除，或者其它情况。排查许久，许久，许久...，然后找到是内建扩展`git`的问题，通过`@builtin git`disable后一切正常！(或者这些扩展enable也可以，但必须在setting中设置 git.enabled)但原因不明！然后就直接在终端使用git：
+```
+git init/status/diff
+git commit -a -m "Your commit message"
+git remote set-url origin git@github.com:XXX/XXX.git  # 关联默认远程仓库名为 origin
+git remote -v  #查看远程仓库信息
+git push origin main  #推送，可加-f强行
+```
+51. 使用的雾凇拼音，默认配置文件在`.local/share/fcitx5/rime/default.custom.yaml`和`.local/share/fcitx5/rime/rime_ice.custom.yaml`中，修改两个文件内容为：
 ```
 patch:
   __include: rime_ice_suggestion:/
